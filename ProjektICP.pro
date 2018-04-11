@@ -22,21 +22,33 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+DESTDIR = ../ICP/bin
+
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    form.cpp \
-    graphics.cpp
+    src/main.cpp \
+    src/GUI/mainwindow.cpp \
+    src/GUI/graphics.cpp \
+    src/GUI/menu.cpp \
+    src/LOGIC/block.cpp \
+    src/LOGIC/ICPmath.cpp \
+    src/LOGIC/ide.cpp \
+    src/LOGIC/port.cpp \
+    src/LOGIC/scheme.cpp
 
 HEADERS += \
-        mainwindow.h \
-    form.h \
-    graphics.h
+    src/GUI/mainwindow.h \
+    src/GUI/graphics.h \
+    src/GUI/menu.h \
+    src/LOGIC/block.hpp \
+    src/LOGIC/ICPmath.hpp \
+    src/LOGIC/ide.hpp \
+    src/LOGIC/port.hpp \
+    src/LOGIC/scheme.hpp
 
 FORMS += \
-        mainwindow.ui \
-    form.ui
+    src/GUI/ui/mainwindow.ui \
+    src/GUI/ui/menu.ui
 
 RESOURCES += \
-    reusorce.qrc
+    src/GUI/reusorce.qrc
