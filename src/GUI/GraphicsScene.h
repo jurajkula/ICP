@@ -9,6 +9,9 @@
 #include <QGraphicsEllipseItem>
 #include <QGraphicsPathItem>
 #include <QPainterPath>
+#include <QMainWindow>
+
+#include "createblock.h"
 
 
 class GraphicsScene : public QGraphicsScene

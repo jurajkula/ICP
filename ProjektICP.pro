@@ -24,6 +24,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 DESTDIR = ../ICP/bin
 
+CONFIG += c++11
+CONFIG += c++14
+CONFIG += c++17
+
+QMAKE_CXXFLAGS_RELEASE += -O3
 
 SOURCES += \
     src/main.cpp \
@@ -35,7 +40,8 @@ SOURCES += \
     src/LOGIC/port.cpp \
     src/GUI/GraphicsScene.cpp \
     src/GUI/gBlock.cpp \
-    src/LOGIC/Scheme.cpp
+    src/LOGIC/Scheme.cpp \
+    src/GUI/createblock.cpp
 
 HEADERS += \
     src/GUI/mainwindow.h \
@@ -46,11 +52,12 @@ HEADERS += \
     src/LOGIC/port.hpp \
     src/GUI/GraphicsScene.h \
     src/GUI/gBlock.h \
-    src/LOGIC/Scheme.hpp
+    src/LOGIC/Scheme.hpp \
+    src/GUI/createblock.h
 
 FORMS += \
-    src/GUI/ui/mainwindow.ui \
-    src/GUI/ui/menu.ui
+    src/GUI/mainwindow.ui \
+    src/GUI/menu.ui \
+    src/GUI/createblock.ui
 
 RESOURCES += \
-    src/GUI/reusorce.qrc
