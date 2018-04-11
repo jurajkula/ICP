@@ -5,6 +5,10 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPointF>
 #include <QList>
+#include <QDebug>
+#include <QGraphicsEllipseItem>
+#include <QGraphicsPathItem>
+#include <QPainterPath>
 
 
 class GraphicsScene : public QGraphicsScene

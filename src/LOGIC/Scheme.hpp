@@ -11,14 +11,15 @@
 #include <string>
 #include "block.hpp"
 
-class scheme {
+class Scheme {
 public:
-    explicit scheme(std::string);
+    explicit Scheme(std::string);
 
     void blockAdd(block*);
     void blockDelete(block*);
     bool blockFind(block*);
     std::string getName();
+    void setName(std::string);
     bool createConnection(port*,port*);
     bool compute();
 

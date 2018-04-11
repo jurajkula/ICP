@@ -2,18 +2,18 @@
 // Created by jurajkula on 24.3.2018.
 //
 
-#include "scheme.hpp"
+#include "Scheme.hpp"
 
 
-scheme::scheme(std::string name) {
+Scheme::Scheme(std::string name) {
     this->name = std::move(name);
 }
 
-void scheme::blockAdd(block *b) {
+void Scheme::blockAdd(block *b) {
     this->blocks.push_back(b);
 }
 
-void scheme::blockDelete(block *b) {
+void Scheme::blockDelete(block *b) {
     for (unsigned long i = 0; i < this->blocks.size(); i++) {
         if (this->blocks.at(i) == b) {
             this->blocks.erase(this->blocks.begin() + i);
@@ -22,15 +22,19 @@ void scheme::blockDelete(block *b) {
 }
 
 //TODO  find blocks
-bool scheme::blockFind(block *b) {
+bool Scheme::blockFind(block *b) {
     return false;
 }
 
-std::string scheme::getName() {
+std::string Scheme::getName() {
     return this->name;
 }
 
-bool scheme::createConnection(port *pOUT, port *pIN) {
+void Scheme::setName(std::string s) {
+    this->name = s;
+}
+
+bool Scheme::createConnection(port *pOUT, port *pIN) {
     if (pIN->isConnected() || pOUT->isConnected())
         return false;
 
@@ -49,12 +53,12 @@ bool scheme::createConnection(port *pOUT, port *pIN) {
     return true;
 }
 
-bool scheme::compute() {
+bool Scheme::compute() {
     //([a-zA-Z][a-zA-z0-9]*|[1-9][0-9]*)
     return false;
 }
 
-int scheme::generateID() {
+int Scheme::generateID() {
     std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_int_distribution<> dist(1, 10000);

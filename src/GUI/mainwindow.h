@@ -12,7 +12,9 @@
 #include <QToolBar>
 
 #include "ui_mainwindow.h"
-#include "graphics.h"
+#include "GraphicsScene.h"
+#include "gBlock.h"
+#include "../LOGIC/Scheme.hpp"
 
 
 
@@ -38,9 +40,9 @@ private:
     Ui::MainWindow *ui;
     //ideme si robit scenu
     QGraphicsScene *scene;
-    QGraphicsRectItem *rectangle;
     //formovanie noveho okna
 
+    Scheme *scheme;
 };
 
 #endif // MAINWINDOW_H

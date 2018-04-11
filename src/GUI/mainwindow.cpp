@@ -3,11 +3,15 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    scheme(new Scheme("Untitled"))
 {
     ui->setupUi(this);
+    this->setWindowTitle(scheme->getName().data());
+
     // tvorba scena //
     scene = new GraphicsScene(this);
+
     //novy graphics view
     QGraphicsView *view = new QGraphicsView(this);
     view->setSceneRect(-300,-300, 300, 300);
@@ -16,14 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //zobrazenie sceny
     view->setScene(scene);
 
-    //tvorba stvroca
-    QBrush redBrush(Qt::red);
-    QPen blackpen(Qt::black);
-    blackpen.setWidth(1);
-    rectangle = scene->addRect(10,10,100,100,blackpen,redBrush);
-    rectangle->setFlag(QGraphicsItem::ItemIsMovable);
 
- this->setCentralWidget(view);
+    this->setCentralWidget(view);
 }
 
 MainWindow::~MainWindow()

@@ -5,14 +5,14 @@
 #ifndef ICP_IDE_HPP
 #define ICP_IDE_HPP
 
-#include "scheme.hpp"
+#include "Scheme.hpp"
 
 class ide {
 public:
     ide();
     virtual ~ide();
 
-    scheme* newScheme(std::string);
+    Scheme* newScheme(std::string);
     bool saveScheme();
     bool loadScheme();
     void exitIDE();

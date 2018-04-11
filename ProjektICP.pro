@@ -4,9 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ProjektICP
 TEMPLATE = app
@@ -28,23 +28,25 @@ DESTDIR = ../ICP/bin
 SOURCES += \
     src/main.cpp \
     src/GUI/mainwindow.cpp \
-    src/GUI/graphics.cpp \
     src/GUI/menu.cpp \
     src/LOGIC/block.cpp \
     src/LOGIC/ICPmath.cpp \
     src/LOGIC/ide.cpp \
     src/LOGIC/port.cpp \
-    src/LOGIC/scheme.cpp
+    src/GUI/GraphicsScene.cpp \
+    src/GUI/gBlock.cpp \
+    src/LOGIC/Scheme.cpp
 
 HEADERS += \
     src/GUI/mainwindow.h \
-    src/GUI/graphics.h \
     src/GUI/menu.h \
     src/LOGIC/block.hpp \
     src/LOGIC/ICPmath.hpp \
     src/LOGIC/ide.hpp \
     src/LOGIC/port.hpp \
-    src/LOGIC/scheme.hpp
+    src/GUI/GraphicsScene.h \
+    src/GUI/gBlock.h \
+    src/LOGIC/Scheme.hpp
 
 FORMS += \
     src/GUI/ui/mainwindow.ui \

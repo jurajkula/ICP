@@ -9,8 +9,8 @@
 ide::ide() = default;
 ide::~ide() = default;
 
-scheme* ide::newScheme(std::string name) {
-    return new scheme(name);
+Scheme* ide::newScheme(std::string name) {
+    return new Scheme(name);
 }
 
 //TODO
