@@ -1,16 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "form.h"
-#include <QMainWindow>
-#include <QDialog>
-#include <QtCore>
-#include <QtGui>
-// asi treba pouzivat widgets lebo gui nepozna
+
 #include <QtWidgets>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QGraphicsView>
+#include <QMessageBox>
+#include <QDebug>
+#include <QMessageBox>
+#include <QDebug>
+#include <QToolBar>
 
+#include "ui_mainwindow.h"
+#include "graphics.h"
 
 
 

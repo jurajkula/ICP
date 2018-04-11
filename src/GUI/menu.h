@@ -1,14 +1,16 @@
 #ifndef FORM_H
 #define FORM_H
 
-#include <QtWidgets>
-#include <QDialog>
-#include <QtCore>
-#include <QtGui>
-// asi treba pouzivat widgets lebo gui nepozna
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QMessageBox>
+#include <QDebug>
+#include <QToolBar>
+#include <QGraphicsItem>
+
 #include "mainwindow.h"
+#include "ui_form.h"
+
 
 namespace Ui {
 class Form;

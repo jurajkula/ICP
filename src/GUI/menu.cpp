@@ -1,12 +1,4 @@
-#include "form.h"
-#include "mainwindow.h"
-#include "ui_form.h"
-#include <QMessageBox>
-#include <QDebug>
-#include <QToolBar>
-#include <QGraphicsItem>
-
-
+#include "menu.h"
 
 Form::Form(QWidget *parent) :
     QWidget(parent),

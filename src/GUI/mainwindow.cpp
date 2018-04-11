@@ -1,16 +1,4 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include <QMessageBox>
-#include <QDebug>
-#include "form.h"
-#include <QMessageBox>
-#include <QDebug>
-#include <QToolBar>
-#include <QGraphicsItem>
-#include <QGraphicsView>
-#include <QGraphicsScene>
-#include <graphics.h>
-
 
 
 MainWindow::MainWindow(QWidget *parent) :
