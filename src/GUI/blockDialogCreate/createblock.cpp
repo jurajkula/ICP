@@ -1,11 +1,4 @@
 #include "createblock.h"
-#include "ui_createblock.h"
-#include "gBlock.h"
-#include "portform.h"
-#include "portaddform.h"
-
-#include <QScrollArea>
-#include <QVBoxLayout>
 
 createBlock::createBlock(QGraphicsScene *scene, QPointF pos, QWidget *parent) :
     QDialog(parent),
@@ -36,7 +29,7 @@ createBlock::~createBlock()
 void createBlock::on_buttonBox_accepted()
 {
     //TODO
-    new gBlock(this->scene, pos);
+    //new gBlock(this->scene, pos);
 }
 
 void createBlock::on_buttonBox_rejected()

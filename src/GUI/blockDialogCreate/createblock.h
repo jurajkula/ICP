@@ -2,9 +2,14 @@
 #define CREATEBLOCK_H
 
 #include "portform.h"
+#include "ui_createblock.h"
+#include "../gBlock.h"
+#include "portaddform.h"
 
 #include <QDialog>
 #include <QGraphicsScene>
+#include <QScrollArea>
+#include <QVBoxLayout>
 
 namespace Ui {
 class createBlock;

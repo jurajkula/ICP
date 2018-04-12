@@ -11,7 +11,7 @@
 #include <QPainterPath>
 #include <QMainWindow>
 
-#include "createblock.h"
+#include "blockDialogCreate/createblock.h"
 
 
 class GraphicsScene : public QGraphicsScene
