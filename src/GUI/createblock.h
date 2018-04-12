@@ -1,6 +1,8 @@
 #ifndef CREATEBLOCK_H
 #define CREATEBLOCK_H
 
+#include "portform.h"
+
 #include <QDialog>
 #include <QGraphicsScene>
 
@@ -25,6 +27,7 @@ private:
     Ui::createBlock *ui;
     QGraphicsScene *scene;
     QPointF pos;
+    std::vector<portForm *> portForms;
 };
 
 #endif // CREATEBLOCK_H

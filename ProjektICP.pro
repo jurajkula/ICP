@@ -41,7 +41,9 @@ SOURCES += \
     src/GUI/GraphicsScene.cpp \
     src/GUI/gBlock.cpp \
     src/LOGIC/Scheme.cpp \
-    src/GUI/createblock.cpp
+    src/GUI/createblock.cpp \
+    src/GUI/portform.cpp \
+    src/GUI/portaddform.cpp
 
 HEADERS += \
     src/GUI/mainwindow.h \
@@ -53,11 +55,15 @@ HEADERS += \
     src/GUI/GraphicsScene.h \
     src/GUI/gBlock.h \
     src/LOGIC/Scheme.hpp \
-    src/GUI/createblock.h
+    src/GUI/createblock.h \
+    src/GUI/portform.h \
+    src/GUI/portaddform.h
 
 FORMS += \
     src/GUI/mainwindow.ui \
     src/GUI/menu.ui \
-    src/GUI/createblock.ui
+    src/GUI/createblock.ui \
+    src/GUI/portform.ui \
+    src/GUI/portaddform.ui
 
 RESOURCES += \
