@@ -11,22 +11,78 @@
 #include <string>
 #include "block.hpp"
 
+/**
+ * @brief The Scheme class
+ */
 class Scheme {
 public:
-    explicit Scheme(std::string);
 
-    void blockAdd(block*);
-    void blockDelete(block*);
-    bool blockFind(block*);
+    /**
+     * @brief Scheme Constructor this class
+     * @param s Name of scheme
+     */
+    explicit Scheme(std::string s);
+
+    /**
+     * @brief blockAdd Function, which add block to vector
+     * @param b Pointer to block
+     */
+    void blockAdd(block *b);
+
+    /**
+     * @brief blockDelete Function, which delete block from vector
+     * @param b Pointer to block
+     */
+    void blockDelete(block *b);
+
+    /**
+     * @brief blockFind Function, which find block in vector
+     * @param b Pointer to block
+     * @return Return TRUE, if block was founded, else return FALSE
+     */
+    bool blockFind(block *b);
+
+    /**
+     * @brief getName Support function, which return name of the scheme
+     * @return Name of the scheme as std::string
+     */
     std::string getName();
-    void setName(std::string);
-    bool createConnection(port*,port*);
+
+    /**
+     * @brief setName Support function, wchich set name of the scheme
+     * @param s New name of the scheme
+     */
+    void setName(std::string s);
+
+    /**
+     * @brief createConnection Function, which set connection between 2 ports
+     * @param p1 Output port
+     * @param p2 Input port
+     * @return Return TRUE, if was possible create connection, else return FALSE
+     */
+    bool createConnection(port *p1, port *p2);
+
+    /**
+     * @brief compute Function, which run computing
+     * @return Return TRUE, if computation was OK, else return FALSE
+     */
     bool compute();
 
+    /**
+     * @brief generateID Support function, which generate ID.
+     * @return Generated ID
+     */
     int generateID();
 
 private:
+    /**
+     * @brief name Name of the scheme
+     */
     std::string name;
+
+    /**
+     * @brief blocks Vector of blocks
+     */
     std::vector<block *> blocks;
 };
 

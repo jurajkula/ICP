@@ -1,5 +1,4 @@
 #include "GraphicsScene.h"
-#include "gBlock.h"
 
 GraphicsScene::GraphicsScene(QObject *parent) :
     QGraphicsScene(parent)
@@ -10,7 +9,7 @@ GraphicsScene::GraphicsScene(QObject *parent) :
 void GraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     if (mouseEvent->button() == Qt::LeftButton) {
-        qDebug() << Q_FUNC_INFO << mouseEvent->scenePos();
+        //qDebug() << Q_FUNC_INFO << mouseEvent->scenePos();
         QGraphicsScene::mouseDoubleClickEvent(mouseEvent);
         //new gBlock(this, mouseEvent->scenePos());
 

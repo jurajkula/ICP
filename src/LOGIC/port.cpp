@@ -4,6 +4,13 @@
 
 #include "port.hpp"
 
+data CreateData(std::string name, double value) {
+    data d;
+    d.name = name;
+    d.value = value;
+    return d;
+}
+
 port::port(int status) {
     this->connect.connected = false;
     this->status = status;
@@ -18,10 +25,12 @@ bool port::findData(std::string s) {
 }
 
 data port::returnData(std::string s) {
+    data r;
     for(data d : this->type) {
         if (d.name == s)
-            return d;
+            r = d;
     }
+    return r;
 }
 
 bool port::addData(data d) {

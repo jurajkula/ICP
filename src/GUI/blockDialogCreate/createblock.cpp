@@ -12,12 +12,14 @@ createBlock::createBlock(QGraphicsScene *scene, QPointF pos, QWidget *parent) :
     QVBoxLayout *layout = new QVBoxLayout();
     ui->scrollAreaWidgetContents->setLayout(layout);
 
-    portForm *pF = new portForm(layout, &portForms);
-    portAddForm *pAF = new portAddForm(layout, &portForms);
+    portToolBox *pTB = new portToolBox();
+    portAddForm *pAF = new portAddForm(layout, &portPages, &portForms, pTB);
 
-    layout->addWidget(pF);
-    portForms.push_back(pF);
+    portPage *w = new portPage(&portPages, pTB);
+    portPages.push_back(w);
 
+    pTB->addItem(w,"Port");
+    layout->addWidget(pTB);
     layout->addWidget(pAF);
 }
 
@@ -28,8 +30,7 @@ createBlock::~createBlock()
 
 void createBlock::on_buttonBox_accepted()
 {
-    //TODO
-    //new gBlock(this->scene, pos);
+
 }
 
 void createBlock::on_buttonBox_rejected()

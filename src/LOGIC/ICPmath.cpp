@@ -227,4 +227,5 @@ double runComputing(rule *r, std::vector<sMath> v, std::vector<port *> ports) {
             }
         }
     }
+    return output;
 }
