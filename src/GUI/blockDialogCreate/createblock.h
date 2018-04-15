@@ -4,6 +4,7 @@
 #include "ui_createblock.h"
 #include "../gBlock.h"
 #include "../../LOGIC/port.hpp"
+#include "../../LOGIC/Scheme.hpp"
 #include "tabPort/portaddform.h"
 
 #include <QDialog>
@@ -26,13 +27,21 @@ class createBlock : public QDialog
 public:
     /**
      * @brief createBlock Constructor of class
+     * @param scheme Pointer to logic scheme
      * @param scene Scene
      * @param pos Position
      * @param parent Parent window
      */
-    explicit createBlock(QGraphicsScene *scene, QPointF pos, QWidget *parent = 0);
+    explicit createBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, QWidget *parent = 0);
     ~createBlock();
 
+    /**
+     * @brief setErrorMessage Support function, which seet error message to label
+     * @param s Message
+     */
+    void setErrorMessage(std::string s);
+
+    virtual void accept();
 private slots:
 
     /**
@@ -71,6 +80,16 @@ private:
      * @brief portPages Vector of port pages
      */
     std::vector<portPage *> portPages;
+
+    /**
+     * @brief ports Vector of ports
+     */
+    std::vector<port*> ports;
+
+    /**
+     * @brief scheme Pointer to logic scheme
+     */
+    Scheme *scheme;
 };
 
 #endif // CREATEBLOCK_H

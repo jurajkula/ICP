@@ -33,6 +33,18 @@ public:
      */
     std::vector<portDataForm *> getPortDataForms();
 
+    /**
+     * @brief getUi Function, which return page UI
+     * @return Page UI
+     */
+    Ui::portPage *getUi();
+
+    /**
+     * @brief getPortForm Function, which return portForm
+     * @return Return port form
+     */
+    portForm * getPortForm();
+
 private slots:
     /**
      * @brief destroy_page Function, which delete page from vector and GUI
@@ -59,6 +71,11 @@ private:
      * @brief box Tool box of pages
      */
     portToolBox *box;
+
+    /**
+     * @brief pF PortForm of page
+     */
+    portForm *pF;
 
 };
 

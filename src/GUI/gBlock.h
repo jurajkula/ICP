@@ -8,6 +8,8 @@
 #include <QMouseEvent>
 #include <QDebug>
 
+#include <src/LOGIC/block.hpp>
+
 /**
  * @brief The gBlock class
  */
@@ -38,29 +40,31 @@ private:
     QGraphicsRectItem *rectangle;
 
     /**
-     * @brief sizeX
+     * @brief X2
      */
-    int sizeX = 100;
+    int X2 = 100;
 
     /**
-     * @brief sizeY
+     * @brief Y2
      */
-    int sizeY = 50;
+    int Y2 = 50;
+
+    /**
+     * @brief X1
+     */
+    int X1 = 10;
+
+    /**
+     * @brief Y2
+     */
+    int Y1 = 10;
 
     /**
      * @brief pos Position
      */
     QPointF pos;
 
-    /**
-     * @brief a
-     */
-    int a = 10;
-
-    /**
-     * @brief b
-     */
-    int b = 10;
+    Block *block;
 };
 
 #endif // GBLOCK_H

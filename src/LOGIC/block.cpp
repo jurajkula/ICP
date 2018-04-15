@@ -4,39 +4,39 @@
 
 #include "block.hpp"
 
-block::block() = default;
+Block::Block() = default;
 
-block::block(std::vector<port *> port, std::vector<rule> r, int id) {
+Block::Block(std::vector<port *> port, std::vector<rule> r, int id) {
     this->ports = std::move(port);
     this->rules = std::move(r);
     this->ID = id;
 }
 
-std::vector<port *> block::getPorts() {
+std::vector<port *> Block::getPorts() {
     return this->ports;
 }
 
-std::vector<rule> block::getRules() {
+std::vector<rule> Block::getRules() {
     return this->rules;
 }
 
 // TODO compute data
-bool block::execute() {
+bool Block::execute() {
 
 
 
     return false;
 }
 
-int block::getID() {
+int Block::getID() {
     return this->ID;
 }
 
-void block::setID(int i) {
+void Block::setID(int i) {
     this->ID = i;
 }
 
-void block::setPortsID() {
+void Block::setPortsID() {
     for (port *p : this->ports) {
         p->setID(this->ID);
     }

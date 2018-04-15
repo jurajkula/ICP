@@ -12,20 +12,20 @@
 /**
  * @brief The block class
  */
-class block {
+class Block {
 public:
     /**
-     * @brief block Default constructor
+     * @brief Block Default constructor
      */
-    block();
+    Block();
 
     /**
-     * @brief block Constructor of block
+     * @brief Block Constructor of block
      * @param ports Vector of ports
      * @param rules Vector of rules
      * @param ID Generated block ID
      */
-    explicit block(std::vector<port *> ports, std::vector<rule> rules, int ID);
+    explicit Block(std::vector<port *> ports, std::vector<rule> rules, int ID);
 
     /**
      * @brief getPorts Function, which return vector of ports

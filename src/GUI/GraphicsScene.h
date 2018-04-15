@@ -10,6 +10,7 @@
 #include <QMainWindow>
 
 #include "blockDialogCreate/createblock.h"
+#include "../LOGIC/Scheme.hpp"
 
 /**
  * @brief The GraphicsScene class
@@ -20,9 +21,10 @@ class GraphicsScene : public QGraphicsScene
 public:
     /**
      * @brief GraphicsScene Cosntructor of class
+     * @param scheme Pointer to scheme
      * @param parent Parent window
      */
-    explicit GraphicsScene(QObject *parent = 0);
+    explicit GraphicsScene(Scheme *scheme, QObject *parent = 0);
 
     /**
      * @brief mouseDoubleClickEvent Function, which grab double click event
@@ -41,5 +43,10 @@ private:
      * @brief m_points TODO
      */
     QList <QPointF> m_points;
+
+    /**
+     * @brief scheme Pointer to logic scheme
+     */
+    Scheme *scheme;
 };
 #endif // GRAPHICS_H

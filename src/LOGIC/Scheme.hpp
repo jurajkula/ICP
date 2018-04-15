@@ -27,20 +27,20 @@ public:
      * @brief blockAdd Function, which add block to vector
      * @param b Pointer to block
      */
-    void blockAdd(block *b);
+    void blockAdd(Block *b);
 
     /**
      * @brief blockDelete Function, which delete block from vector
      * @param b Pointer to block
      */
-    void blockDelete(block *b);
+    void blockDelete(Block *b);
 
     /**
      * @brief blockFind Function, which find block in vector
      * @param b Pointer to block
      * @return Return TRUE, if block was founded, else return FALSE
      */
-    bool blockFind(block *b);
+    bool blockFind(Block *b);
 
     /**
      * @brief getName Support function, which return name of the scheme
@@ -83,7 +83,7 @@ private:
     /**
      * @brief blocks Vector of blocks
      */
-    std::vector<block *> blocks;
+    std::vector<Block *> blocks;
 };
 
 

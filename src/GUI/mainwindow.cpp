@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle(scheme->getName().data());
 
     // tvorba scena //
-    scene = new GraphicsScene(this);
+    scene = new GraphicsScene(this->scheme, this);
 
     //novy graphics view
     QGraphicsView *view = new QGraphicsView(this);

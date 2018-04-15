@@ -1,9 +1,10 @@
 #include "GraphicsScene.h"
 
-GraphicsScene::GraphicsScene(QObject *parent) :
+GraphicsScene::GraphicsScene(Scheme *s, QObject *parent) :
     QGraphicsScene(parent)
 {
     this->setBackgroundBrush(Qt::gray);
+    this->scheme = s;
 }
 
 void GraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
@@ -14,7 +15,7 @@ void GraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
         //new gBlock(this, mouseEvent->scenePos());
 
         // TODO inside main window
-        createBlock *bD = new createBlock(this, mouseEvent->scenePos());
+        createBlock *bD = new createBlock(this->scheme, this, mouseEvent->scenePos());
         bD->show();
     }
 }

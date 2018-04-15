@@ -12,6 +12,8 @@ portDataForm::portDataForm(QVBoxLayout *layout, std::vector<portDataForm *> *por
     if (portDataForms->size() == 0) {
         this->ui->pushButton->hide();
     }
+
+    this->ui->value->setValidator(new QDoubleValidator(0, 100, 10, this));
 }
 
 Ui::portDataForm* portDataForm::GetUI(){

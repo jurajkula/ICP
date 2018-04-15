@@ -13,7 +13,7 @@ portPage::portPage(std::vector<portPage *> *portPages, portToolBox *b, QWidget *
 
     portAddDataForm *pADF = new portAddDataForm(l, &portDataForms);
 
-    portForm *pF = new portForm(b, this);
+    pF = new portForm(b, this);
 
     l->addWidget(pF);
 
@@ -45,4 +45,12 @@ portPage::~portPage()
 
 std::vector<portDataForm *> portPage::getPortDataForms(){
     return this->portDataForms;
+}
+
+Ui::portPage * portPage::getUi() {
+    return this->ui;
+}
+
+portForm * portPage::getPortForm() {
+    return this->pF;
 }

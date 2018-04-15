@@ -9,11 +9,11 @@ Scheme::Scheme(std::string name) {
     this->name = std::move(name);
 }
 
-void Scheme::blockAdd(block *b) {
+void Scheme::blockAdd(Block *b) {
     this->blocks.push_back(b);
 }
 
-void Scheme::blockDelete(block *b) {
+void Scheme::blockDelete(Block *b) {
     for (unsigned long i = 0; i < this->blocks.size(); i++) {
         if (this->blocks.at(i) == b) {
             this->blocks.erase(this->blocks.begin() + i);
@@ -22,7 +22,7 @@ void Scheme::blockDelete(block *b) {
 }
 
 //TODO  find blocks
-bool Scheme::blockFind(block *b) {
+bool Scheme::blockFind(Block *b) {
     return false;
 }
 
@@ -67,7 +67,7 @@ int Scheme::generateID() {
     bool found = false;
     while(true) {
         id = dist(mt);
-        for (block *b: this->blocks) {
+        for (Block *b: this->blocks) {
             if(b->getID() == id) {
                 found = true;
                 break;
