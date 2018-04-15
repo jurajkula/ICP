@@ -2,7 +2,7 @@
 #define FORM_H
 
 #include "mainwindow.h"
-#include "ui_form.h"
+#include "ui_menu.h"
 
 
 namespace Ui {
