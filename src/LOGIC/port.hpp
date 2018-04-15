@@ -74,6 +74,11 @@ public:
     bool addData(data d);
 
     /**
+     * @brief clearData Support function, which clear all data
+     */
+    void clearData();
+
+    /**
      * @brief getData Function, which return vector of data
      * @return Return data
      */

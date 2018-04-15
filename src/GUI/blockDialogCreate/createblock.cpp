@@ -46,6 +46,12 @@ void createBlock::on_buttonBox_accepted()
             p = new port (OUTPUT);
 
         for (portDataForm *data : page->getPortDataForms()) {
+            if (data->GetUI()->name->text().isEmpty()) {
+                p->clearData();
+                this->setErrorMessage("Not correct data name");
+                return;
+            }
+
             p->addData(CreateData(data->GetUI()->name->text().toStdString(), data->GetUI()->value->text().toDouble()));
         }
         this->ports.push_back(p);

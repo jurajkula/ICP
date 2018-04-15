@@ -45,6 +45,10 @@ std::vector<data> port::getData() {
     return this->type;
 }
 
+void port::clearData() {
+    this->type.clear();
+}
+
 bool port::isUsed() {
     return this->used;
 }

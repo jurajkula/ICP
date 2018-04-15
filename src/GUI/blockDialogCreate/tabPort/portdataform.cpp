@@ -14,6 +14,7 @@ portDataForm::portDataForm(QVBoxLayout *layout, std::vector<portDataForm *> *por
     }
 
     this->ui->value->setValidator(new QDoubleValidator(0, 100, 10, this));
+    this->ui->value->setText("0");
 }
 
 Ui::portDataForm* portDataForm::GetUI(){
