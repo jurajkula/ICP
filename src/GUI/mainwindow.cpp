@@ -4,7 +4,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    scheme(new Scheme("Untitled"))
+    scheme(new Scheme(""))
+
 {
     ui->setupUi(this);
     this->setWindowTitle(scheme->getName().data());

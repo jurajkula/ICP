@@ -41,6 +41,7 @@ SOURCES += \
     src/GUI/menu.cpp \
     src/GUI/GraphicsScene.cpp \
     src/GUI/gBlock.cpp \
+    src/GUI/dialog.cpp \
     src/GUI/blockDialogCreate/createblock.cpp \
     src/GUI/blockDialogCreate/tabPort/portform.cpp \
     src/GUI/blockDialogCreate/tabPort/portaddform.cpp \
@@ -51,6 +52,7 @@ SOURCES += \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.cpp \
     src/GUI/blockDialogCreate/tabMath/mathaddschemaform.cpp
 
+
 HEADERS += \
     src/LOGIC/block.hpp \
     src/LOGIC/ICPmath.hpp \
@@ -58,6 +60,7 @@ HEADERS += \
     src/LOGIC/Scheme.hpp \
     src/GUI/mainwindow.h \
     src/GUI/menu.h \
+    src/GUI/dialog.h \
     src/GUI/GraphicsScene.h \
     src/GUI/gBlock.h \
     src/GUI/blockDialogCreate/createblock.h \
@@ -73,6 +76,7 @@ HEADERS += \
 FORMS += \
     src/GUI/mainwindow.ui \
     src/GUI/menu.ui \
+    src/GUI/dialog.ui \
     src/GUI/blockDialogCreate/createblock.ui \
     src/GUI/blockDialogCreate/tabPort/portform.ui \
     src/GUI/blockDialogCreate/tabPort/portaddform.ui \
@@ -82,5 +86,6 @@ FORMS += \
     src/GUI/blockDialogCreate/tabPort/portadddataform.ui \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.ui \
     src/GUI/blockDialogCreate/tabMath/mathaddschemaform.ui
+
 
 RESOURCES += \

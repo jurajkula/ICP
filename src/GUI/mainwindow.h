@@ -45,6 +45,7 @@ private slots:
      */
     void on_actionTutorial_triggered();
 
+
 private:
     /**
      * @brief ui GUI window

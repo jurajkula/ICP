@@ -6,6 +6,7 @@ Form::Form(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setFixedSize(this->size());
+
 }
 
 Form::~Form()
@@ -15,6 +16,13 @@ Form::~Form()
 
 void Form::on_pushButton_clicked()
 {
+
+    //vytvori mi nove okno
+     Dialog *dialog = new Dialog();
+     dialog->show();
+     this->hide();
+     this->close();
+
     //vytvori mi nove okno
      MainWindow *mainwindow = new MainWindow();
      mainwindow->show();
@@ -34,5 +42,10 @@ void Form::on_pushButton_3_clicked()
    else {
    qDebug() << "No is clicked";
    }
+
+}
+
+void Form::on_pushButton_windowTitleChanged(const QString &title)
+{
 
 }

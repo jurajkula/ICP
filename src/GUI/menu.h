@@ -2,7 +2,9 @@
 #define FORM_H
 
 #include "mainwindow.h"
+#include "dialog.h"
 #include "ui_menu.h"
+#include "GraphicsScene.h"
 
 
 namespace Ui {
@@ -39,6 +41,10 @@ private slots:
      * @brief on_pushButton_3_clicked End program
      */
     void on_pushButton_3_clicked();
+
+    void on_pushButton_customContextMenuRequested(const QPoint &pos);
+
+    void on_pushButton_windowTitleChanged(const QString &title);
 
 private:
     /**
