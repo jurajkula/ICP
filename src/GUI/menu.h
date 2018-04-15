@@ -1,11 +1,8 @@
 #ifndef FORM_H
 #define FORM_H
 
-#include "mainwindow.h"
 #include "dialog.h"
 #include "ui_menu.h"
-#include "GraphicsScene.h"
-
 
 namespace Ui {
 class Form;
@@ -42,15 +39,21 @@ private slots:
      */
     void on_pushButton_3_clicked();
 
-    void on_pushButton_customContextMenuRequested(const QPoint &pos);
-
-    void on_pushButton_windowTitleChanged(const QString &title);
+    /**
+     * @brief dialogRejected_showMenu Function, which collects signal rejected() from Dialog::ui::ButtonBox
+     */
+    void dialogRejected_showMenu();
 
 private:
     /**
      * @brief ui GUI window
      */
     Ui::Form *ui;
+
+    /**
+     * @brief dialog Dialog form - create new
+     */
+    Dialog *dialog;
 
 };
 

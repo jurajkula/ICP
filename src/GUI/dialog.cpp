@@ -1,6 +1,4 @@
 #include "dialog.h"
-#include "mainwindow.h"
-#include "ui_dialog.h"
 
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
@@ -8,6 +6,7 @@ Dialog::Dialog(QWidget *parent) :
 
 {
     ui->setupUi(this);
+    this->setFixedSize(this->size());
 }
 
 Dialog::~Dialog()
@@ -15,8 +14,24 @@ Dialog::~Dialog()
     delete ui;
 }
 
+void Dialog::accept() {}
 
-void Dialog::on_textEdit_windowTitleChanged(const QString &title)
+void Dialog::on_buttonBox_accepted()
 {
+    if (this->ui->lineEdit->text().isEmpty()) {
+        this->ui->lineEdit->setStyleSheet("QLineEdit {background-color: red; color: white;}");
+        return;
+    }
 
+     //vytvori mi nove okno
+     MainWindow *mainwindow = new MainWindow(this->ui->lineEdit->text().toStdString());
+     mainwindow->show();
+
+     this->hide();
+     this->done(QDialog::Accepted);
+     this->close();
+}
+
+Ui::Dialog *Dialog::getUI() {
+    return this->ui;
 }

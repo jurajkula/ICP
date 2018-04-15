@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(std::string name, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    scheme(new Scheme(""))
+    scheme(new Scheme(name))
 
 {
     ui->setupUi(this);

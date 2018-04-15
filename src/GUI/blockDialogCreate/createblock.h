@@ -42,6 +42,9 @@ public:
      */
     void setErrorMessage(std::string s);
 
+    /**
+     * @brief accept Rewrite function accept() - do nothing
+     */
     virtual void accept();
 private slots:
 

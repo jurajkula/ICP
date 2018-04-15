@@ -18,18 +18,13 @@ void Form::on_pushButton_clicked()
 {
 
     //vytvori mi nove okno
-     Dialog *dialog = new Dialog();
+     dialog = new Dialog();
      dialog->show();
+
+     QObject::connect(dialog->getUI()->buttonBox, SIGNAL(rejected()), this, SLOT(dialogRejected_showMenu()));
+
      this->hide();
      this->close();
-
-    //vytvori mi nove okno
-     MainWindow *mainwindow = new MainWindow();
-     mainwindow->show();
-     this->hide();
-     this->close();
-
-
 }
 
 void Form::on_pushButton_3_clicked()
@@ -42,10 +37,10 @@ void Form::on_pushButton_3_clicked()
    else {
    qDebug() << "No is clicked";
    }
-
 }
 
-void Form::on_pushButton_windowTitleChanged(const QString &title)
-{
-
+void Form::dialogRejected_showMenu() {
+    this->show();
+    dialog->hide();
+    dialog->close();
 }

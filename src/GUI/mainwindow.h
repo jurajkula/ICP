@@ -27,9 +27,10 @@ class MainWindow : public QMainWindow
 public:
     /**
      * @brief MainWindow Cosntructor of class MainWindow
+     * @param name Name of the scheme
      * @param parent Parent window
      */
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(std::string name, QWidget *parent = 0);
 
     ~MainWindow();
 
