@@ -11,8 +11,12 @@ createBlock::createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, QWidget 
     this->scheme = s;
 
     QVBoxLayout *layout = new QVBoxLayout();
-    ui->scrollAreaWidgetContents->setLayout(layout);
+    QVBoxLayout *mathTabLayout = new QVBoxLayout();
 
+    ui->scrollAreaWidgetContents->setLayout(layout);
+    ui->scrollAreaWidgetContents_2->setLayout(mathTabLayout);
+
+    // PORT TAB
     portToolBox *pTB = new portToolBox();
     portAddForm *pAF = new portAddForm(layout, &portPages, &portForms, pTB);
 
@@ -22,6 +26,18 @@ createBlock::createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, QWidget 
     pTB->addItem(w,"Port");
     layout->addWidget(pTB);
     layout->addWidget(pAF);
+
+    // *********************************
+
+    // MATH TAB
+    mathAddSchemaForm *mAddForm = new mathAddSchemaForm(mathTabLayout, &mathForms);
+    mathSchemaForm *mForm = new mathSchemaForm(mathTabLayout, &mathForms);
+
+    mathForms.push_back(mForm);
+    mathTabLayout->addWidget(mForm);
+
+    mathTabLayout->addWidget(mAddForm);
+    // *********************************
 }
 
 createBlock::~createBlock()
@@ -89,6 +105,26 @@ void createBlock::on_buttonBox_accepted()
     }
 
 
+    for (mathSchemaForm *mathForm : mathForms) {
+        if (mathForm->getUI()->mathOutput->text().isEmpty()) {
+            this->setErrorMessage("Not correct math schema output");
+            return;
+        }
+        if (!checkMathSyntax(mathForm->getUI()->mathSchema->text().toStdString() + "\n")) {
+            this->setErrorMessage("Not correct math schema");
+            return;
+        }
+
+        // TODO check semantics
+
+        rule r;
+        r.output = mathForm->getUI()->mathOutput->text().toStdString();
+        r.tokens = splitStringFormula(mathForm->getUI()->mathSchema->text().toStdString() + "\n");
+
+        rules.push_back(r);
+    }
+
+    // Create block + create graphics represent of block + create gui of ports
     this->done(QDialog::Accepted);
 }
 

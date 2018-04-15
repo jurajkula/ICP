@@ -47,7 +47,9 @@ SOURCES += \
     src/GUI/blockDialogCreate/tabPort/porttoolbox.cpp \
     src/GUI/blockDialogCreate/tabPort/portpage.cpp \
     src/GUI/blockDialogCreate/tabPort/portdataform.cpp \
-    src/GUI/blockDialogCreate/tabPort/portadddataform.cpp
+    src/GUI/blockDialogCreate/tabPort/portadddataform.cpp \
+    src/GUI/blockDialogCreate/tabMath/mathschemaform.cpp \
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.cpp
 
 HEADERS += \
     src/LOGIC/block.hpp \
@@ -64,7 +66,9 @@ HEADERS += \
     src/GUI/blockDialogCreate/tabPort/porttoolbox.h \
     src/GUI/blockDialogCreate/tabPort/portpage.h \
     src/GUI/blockDialogCreate/tabPort/portdataform.h \
-    src/GUI/blockDialogCreate/tabPort/portadddataform.h
+    src/GUI/blockDialogCreate/tabPort/portadddataform.h \
+    src/GUI/blockDialogCreate/tabMath/mathschemaform.h \
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.h
 
 FORMS += \
     src/GUI/mainwindow.ui \
@@ -75,6 +79,8 @@ FORMS += \
     src/GUI/blockDialogCreate/tabPort/porttoolbox.ui \
     src/GUI/blockDialogCreate/tabPort/portpage.ui \
     src/GUI/blockDialogCreate/tabPort/portdataform.ui \
-    src/GUI/blockDialogCreate/tabPort/portadddataform.ui
+    src/GUI/blockDialogCreate/tabPort/portadddataform.ui \
+    src/GUI/blockDialogCreate/tabMath/mathschemaform.ui \
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.ui
 
 RESOURCES += \

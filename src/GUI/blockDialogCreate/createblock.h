@@ -6,6 +6,7 @@
 #include "../../LOGIC/port.hpp"
 #include "../../LOGIC/Scheme.hpp"
 #include "tabPort/portaddform.h"
+#include "tabMath/mathaddschemaform.h"
 
 #include <QDialog>
 #include <QGraphicsScene>
@@ -90,6 +91,16 @@ private:
      * @brief scheme Pointer to logic scheme
      */
     Scheme *scheme;
+
+    /**
+     * @brief mathForms Vector of math forms
+     */
+    std::vector<mathSchemaForm *> mathForms;
+
+    /**
+     * @brief rules Rules of block
+     */
+    std::vector<rule> rules;
 };
 
 #endif // CREATEBLOCK_H
