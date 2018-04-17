@@ -34,6 +34,12 @@ public:
 
     ~MainWindow();
 
+    /**
+     * @brief getUI
+     * @return
+     */
+    Ui::MainWindow *getUI();
+
 private slots:
 
     /**

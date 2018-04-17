@@ -30,6 +30,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+Ui::MainWindow *MainWindow::getUI() {
+    return this->ui;
+}
 
 //vypnutie hry
 void MainWindow::on_actionQuit_2_triggered()

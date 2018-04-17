@@ -36,6 +36,18 @@ public:
      */
     virtual void accept();
 
+    /**
+     * @brief getMainWindow
+     * @return
+     */
+    MainWindow *getMainWindow();
+
+    /**
+     * @brief setMainWindow
+     * @param window
+     */
+    void setMainWindow(MainWindow *window);
+
 private slots:
 
     /**
@@ -43,9 +55,22 @@ private slots:
      */
     void on_buttonBox_accepted();
 
+    /**
+     * @brief onbuttonBox_rejected
+     */
+    void onbuttonBox_rejected();
+
+    /**
+     * @brief mainWindow_new_triggered
+     */
+    void mainWindow_new_triggered();
+
+
 private:
     Ui::Dialog *ui;
     QGraphicsScene *scene;
+    MainWindow *mainwindow = nullptr;
+
 };
 
 #endif // DIALOG_H
