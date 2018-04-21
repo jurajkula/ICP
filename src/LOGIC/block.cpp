@@ -11,8 +11,6 @@ Block::Block(std::vector<port *> *ports, std::vector<rule> r, int id) {
     this->rules = std::move(r);
     this->ID = id;
 
-    std::cout<<ports->size();
-
     for (port *p : *ports) {
         if(p->getStatus() == INPUT) {
             this->portsInputCount++;

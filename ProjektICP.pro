@@ -50,7 +50,9 @@ SOURCES += \
     src/GUI/blockDialogCreate/tabPort/portdataform.cpp \
     src/GUI/blockDialogCreate/tabPort/portadddataform.cpp \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.cpp \
-    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.cpp
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.cpp \
+    src/GUI/portnode.cpp \
+    src/GUI/arrow.cpp
 
 
 HEADERS += \
@@ -71,7 +73,9 @@ HEADERS += \
     src/GUI/blockDialogCreate/tabPort/portdataform.h \
     src/GUI/blockDialogCreate/tabPort/portadddataform.h \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.h \
-    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.h
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.h \
+    src/GUI/portnode.h \
+    src/GUI/arrow.h
 
 FORMS += \
     src/GUI/mainwindow.ui \

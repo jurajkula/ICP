@@ -18,7 +18,7 @@ class gBlock
 
 public:
     /**
-     * @brief gBlock Construcotr of class
+     * @brief gBlock Constructor of class
      * @param scene Scene
      * @param pos Position
      */
@@ -31,6 +31,8 @@ private slots:
 
 
 private:
+    QGraphicsItemGroup *group;
+
     /**
      * @brief scene Scene
      */
@@ -51,6 +53,7 @@ private:
      */
     int Y = 50;
 
+    int nodePosStartY = 25;
     /**
      * @brief pos Position
      */

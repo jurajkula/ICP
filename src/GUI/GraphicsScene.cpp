@@ -1,4 +1,5 @@
 #include "GraphicsScene.h"
+#include "portnode.h"
 
 GraphicsScene::GraphicsScene(Scheme *s, QObject *parent) :
     QGraphicsScene(parent)
