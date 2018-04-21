@@ -23,6 +23,8 @@ public:
      * @param pos Position
      */
     explicit gBlock(QGraphicsScene *scene, QPointF pos);
+
+    gBlock(QGraphicsScene *scene, QPointF pos, Block *block);
     ~gBlock();
 
 private slots:
@@ -40,24 +42,14 @@ private:
     QGraphicsRectItem *rectangle;
 
     /**
-     * @brief X2
+     * @brief X
      */
-    int X2 = 100;
+    int X = 100;
 
     /**
-     * @brief Y2
+     * @brief Y
      */
-    int Y2 = 50;
-
-    /**
-     * @brief X1
-     */
-    int X1 = 10;
-
-    /**
-     * @brief Y2
-     */
-    int Y1 = 10;
+    int Y = 50;
 
     /**
      * @brief pos Position

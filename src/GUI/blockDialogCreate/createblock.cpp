@@ -53,6 +53,7 @@ void createBlock::setErrorMessage(std::string s) {
 
 void createBlock::on_buttonBox_accepted()
 {
+    // Create ports logic
     for (portPage *page : portPages) {
         QComboBox *cBox = page->getPortForm()->GetUI()->io;
         port *p;
@@ -73,11 +74,13 @@ void createBlock::on_buttonBox_accepted()
         this->ports.push_back(p);
     }
 
+    // Ports empty
     if (ports.empty()) {
         this->setErrorMessage("Not found any port!");
         return;
     }
 
+    // Not found input ports
     bool found = false;
     for (port *p : ports) {
         if (p->getStatus() == INPUT) {
@@ -91,6 +94,7 @@ void createBlock::on_buttonBox_accepted()
         return;
     }
 
+    // Not found output ports
     found = false;
     for (port *p : ports) {
         if (p->getStatus() == OUTPUT) {
@@ -104,27 +108,41 @@ void createBlock::on_buttonBox_accepted()
         return;
     }
 
-
+    // Maths
     for (mathSchemaForm *mathForm : mathForms) {
         if (mathForm->getUI()->mathOutput->text().isEmpty()) {
-            this->setErrorMessage("Not correct math schema output");
+            this->setErrorMessage("No math schema output");
             return;
         }
+
+        if (!checkSemanticsOutput(ports, mathForm->getUI()->mathOutput->text().toStdString())) {
+            this->setErrorMessage("Port in math schema output not found");
+            return;
+        }
+
         if (!checkMathSyntax(mathForm->getUI()->mathSchema->text().toStdString() + "\n")) {
             this->setErrorMessage("Not correct math schema");
             return;
         }
 
-        // TODO check semantics
-
         rule r;
         r.output = mathForm->getUI()->mathOutput->text().toStdString();
         r.tokens = splitStringFormula(mathForm->getUI()->mathSchema->text().toStdString() + "\n");
 
+        if(!checkSemantics(r.tokens, ports)) {
+            this->setErrorMessage("Port in math schema is not found.");
+            return;
+        }
+
         rules.push_back(r);
     }
 
+
     // Create block + create graphics represent of block + create gui of ports
+    Block *block = new Block(&ports, rules, scheme->generateID());
+    scheme->blockAdd(block);
+
+    new gBlock(this->scene, this->pos, block);
     this->done(QDialog::Accepted);
 }
 

@@ -25,13 +25,13 @@ public:
      * @param rules Vector of rules
      * @param ID Generated block ID
      */
-    explicit Block(std::vector<port *> ports, std::vector<rule> rules, int ID);
+    explicit Block(std::vector<port *> *ports, std::vector<rule> rules, int ID);
 
     /**
      * @brief getPorts Function, which return vector of ports
      * @return Vector of ports
      */
-    std::vector<port *> getPorts();
+    std::vector<port *> *getPorts();
 
     /**
      * @brief getRules Function, which return vector of rules
@@ -62,11 +62,23 @@ public:
      */
     void setPortsID();
 
+    /**
+     * @brief getPortsInputCount Support function which returns input ports count
+     * @return Count of input ports
+     */
+    int getPortsInputCount();
+
+    /**
+     * @brief getPortsOutputCount Support function which return output ports count
+     * @return Count of outputports
+     */
+    int getPortsOutputCount();
+
 private:
     /**
      * @brief ports Vector of ports
      */
-    std::vector<port *> ports;
+    std::vector<port *> *ports;
 
     /**
      * @brief rules Vector of rules
@@ -77,6 +89,9 @@ private:
      * @brief ID Block ID
      */
     int ID;
+
+    int portsInputCount = 0;
+    int portsOutputCount = 0;
 };
 
 

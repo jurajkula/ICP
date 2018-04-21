@@ -92,9 +92,20 @@ std::vector<sMath> splitStringFormula(std::string s) {
     return formula;
 }
 
+bool checkSemanticsOutput(std::vector<port *> ports, std::string output) {
+    for (port *p : ports) {
+        if (p->findData(output))
+            return true;
+    }
+    return false;
+}
+
 bool checkSemantics(std::vector<sMath> v, std::vector<port *> ports) {
     for (const sMath &m : v) {
         for (port *p : ports) {
+            if (m.type != sMathType_VAR)
+                return true;
+
             if (p->findData(m.value))
                 return true;
         }

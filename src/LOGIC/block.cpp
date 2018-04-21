@@ -6,13 +6,24 @@
 
 Block::Block() = default;
 
-Block::Block(std::vector<port *> port, std::vector<rule> r, int id) {
-    this->ports = std::move(port);
+Block::Block(std::vector<port *> *ports, std::vector<rule> r, int id) {
+    this->ports = ports;
     this->rules = std::move(r);
     this->ID = id;
+
+    std::cout<<ports->size();
+
+    for (port *p : *ports) {
+        if(p->getStatus() == INPUT) {
+            this->portsInputCount++;
+        }
+        else {
+            this->portsOutputCount++;
+        }
+    }
 }
 
-std::vector<port *> Block::getPorts() {
+std::vector<port *> *Block::getPorts() {
     return this->ports;
 }
 
@@ -37,7 +48,15 @@ void Block::setID(int i) {
 }
 
 void Block::setPortsID() {
-    for (port *p : this->ports) {
+    for (port *p : *ports) {
         p->setID(this->ID);
     }
+}
+
+int Block::getPortsInputCount() {
+    return this->portsInputCount;
+}
+
+int Block::getPortsOutputCount() {
+    return this->portsOutputCount;
 }

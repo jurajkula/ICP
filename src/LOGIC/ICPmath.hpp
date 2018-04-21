@@ -117,6 +117,14 @@ bool isOP(const std::string &s);
 std::vector<sMath> splitStringFormula(std::string s);
 
 /**
+ * @brief checkSemanticsOutput Funciton, which check semantic correction of output
+ * @param ports Vector of ports
+ * @param output Output of math schema
+ * @return Return TRUE, if semantic is correct, else return FALSE
+ */
+bool checkSemanticsOutput(std::vector<port *> ports, std::string output);
+
+/**
  * @brief checkSemantics Funciton, which check semantic correction
  * @param v Vector of math tokens
  * @param ports Vector of ports
