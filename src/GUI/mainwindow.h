@@ -53,6 +53,10 @@ private slots:
     void on_actionTutorial_triggered();
 
 
+    void on_actionSave_2_triggered();
+
+    void on_actionLoad_2_triggered();
+
 private:
     /**
      * @brief ui GUI window

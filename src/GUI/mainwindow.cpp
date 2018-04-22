@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include<QFileDialog>
+#include<QMessageBox>
 
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
@@ -51,4 +53,22 @@ void MainWindow::on_actionQuit_2_triggered()
 void MainWindow::on_actionTutorial_triggered()
 {
     QMessageBox::about(this,"Tutorial","Program ktory sa zaobera skladanim blokovych schem");
+}
+
+
+
+void MainWindow::on_actionLoad_2_triggered()
+{
+        QString filename=QFileDialog::getOpenFileName(
+                    this,
+                    tr("Open File"),
+                    "C://",
+                    "All files(*.*)"
+                    );
+
+        QMessageBox::information(this,tr("File Name"),filename);
+
+
+
+
 }
