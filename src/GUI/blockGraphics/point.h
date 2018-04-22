@@ -1,43 +1,33 @@
-#ifndef PORTNODE_H
-#define PORTNODE_H
-
-#include "arrow.h"
+#ifndef POINT_H
+#define POINT_H
 
 #include <QGraphicsItem>
-#include <QObject>
-#include <QBrush>
+#include <QPainterPath>
+#include <QRect>
+#include <QVariant>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
-#include <QGraphicsScene>
 
-class Arrow;
-
-class PortNode : public QGraphicsItem
+class PortNode;
+class point : public QGraphicsItem
 {
 public:
-    explicit PortNode(QGraphicsScene *scene);
+    point(PortNode *node);
 
-    void addArrow(Arrow *arrow);
-    QList<Arrow *> arrows() const;
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
-signals:
-
-public slots:
-
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
-    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    QList<Arrow *> arrowList;
-    QPointF newPos;
-    QGraphicsScene *scene;
+    PortNode *node;
 };
 
-#endif // PORTNODE_H
+#endif // POINT_H

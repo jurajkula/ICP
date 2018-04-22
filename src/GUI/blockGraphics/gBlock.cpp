@@ -1,5 +1,4 @@
 #include "gBlock.h"
-#include "portnode.h"
 
 gBlock::gBlock(QGraphicsScene *scene, QPointF pos, Block *block)
 {

@@ -66,6 +66,7 @@ void createBlock::on_buttonBox_accepted()
             if (data->GetUI()->name->text().isEmpty()) {
                 p->clearData();
                 this->setErrorMessage("Not correct data name");
+                this->ports.clear();
                 return;
             }
 
@@ -112,16 +113,19 @@ void createBlock::on_buttonBox_accepted()
     for (mathSchemaForm *mathForm : mathForms) {
         if (mathForm->getUI()->mathOutput->text().isEmpty()) {
             this->setErrorMessage("No math schema output");
+            this->ports.clear();
             return;
         }
 
         if (!checkSemanticsOutput(ports, mathForm->getUI()->mathOutput->text().toStdString())) {
             this->setErrorMessage("Port in math schema output not found");
+            this->ports.clear();
             return;
         }
 
         if (!checkMathSyntax(mathForm->getUI()->mathSchema->text().toStdString() + "\n")) {
             this->setErrorMessage("Not correct math schema");
+            this->ports.clear();
             return;
         }
 
@@ -131,6 +135,7 @@ void createBlock::on_buttonBox_accepted()
 
         if(!checkSemantics(r.tokens, ports)) {
             this->setErrorMessage("Port in math schema is not found.");
+            this->ports.clear();
             return;
         }
 

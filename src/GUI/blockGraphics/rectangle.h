@@ -3,13 +3,7 @@
 
 #include "portnode.h"
 
-#include <QGraphicsItem>
-#include <QBrush>
 #include <QPen>
-#include <QGraphicsScene>
-#include <QPainter>
-#include <QStyleOptionGraphicsItem>
-
 
 class Rectangle : public QGraphicsRectItem
 {

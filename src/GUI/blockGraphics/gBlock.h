@@ -1,13 +1,9 @@
 #ifndef GBLOCK_H
 #define GBLOCK_H
 
-#include "portnode.h"
 #include "rectangle.h"
 
-#include <QBrush>
-#include <QPen>
 #include <QGraphicsEllipseItem>
-#include <QGraphicsScene>
 #include <QMouseEvent>
 #include <QDebug>
 

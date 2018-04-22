@@ -1,4 +1,8 @@
+#include "point.h"
 #include "portnode.h"
+
+#include <QEvent>
+#include <QMouseEvent>
 
 PortNode::PortNode(QGraphicsScene *scene)
 {
@@ -6,6 +10,8 @@ PortNode::PortNode(QGraphicsScene *scene)
     setFlag(ItemSendsGeometryChanges);
 
     this->scene->addItem(this);
+    p = new point(this);
+    this->scene->addItem(p);
 }
 
 QRectF PortNode::boundingRect() const
@@ -60,6 +66,7 @@ QVariant PortNode::itemChange(GraphicsItemChange change, const QVariant &value)
 {
     switch (change) {
     case ItemPositionHasChanged:
+        this->p->setPos(this->pos());
         foreach (Arrow *arrow, arrowList)
             arrow->adjust();
         //graph->itemMoved();

@@ -21,7 +21,7 @@ int Rectangle::getY() {
 
 QRectF Rectangle::boundingRect() const
 {
-    return QRectF(0, 0, X, Y*Ymul);
+    return QRectF(5, 5, X-5, Y*Ymul-5);
 }
 
 QPainterPath Rectangle::shape() const

@@ -72,3 +72,8 @@ void MainWindow::on_actionLoad_2_triggered()
 
 
 }
+
+void MainWindow::on_actionSave_2_triggered()
+{
+
+}

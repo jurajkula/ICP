@@ -2,14 +2,13 @@
 #define CREATEBLOCK_H
 
 #include "ui_createblock.h"
-#include "../gBlock.h"
+#include "../blockGraphics/gBlock.h"
 #include "../../LOGIC/port.hpp"
 #include "../../LOGIC/Scheme.hpp"
 #include "tabPort/portaddform.h"
 #include "tabMath/mathaddschemaform.h"
 
 #include <QDialog>
-#include <QGraphicsScene>
 #include <QScrollArea>
 #include <QTextBrowser>
 
