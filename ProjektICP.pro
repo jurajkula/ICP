@@ -52,7 +52,8 @@ SOURCES += \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.cpp \
     src/GUI/blockDialogCreate/tabMath/mathaddschemaform.cpp \
     src/GUI/portnode.cpp \
-    src/GUI/arrow.cpp
+    src/GUI/arrow.cpp \
+    src/GUI/rectangle.cpp
 
 
 HEADERS += \
@@ -75,7 +76,8 @@ HEADERS += \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.h \
     src/GUI/blockDialogCreate/tabMath/mathaddschemaform.h \
     src/GUI/portnode.h \
-    src/GUI/arrow.h
+    src/GUI/arrow.h \
+    src/GUI/rectangle.h
 
 FORMS += \
     src/GUI/mainwindow.ui \

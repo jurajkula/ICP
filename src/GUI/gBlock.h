@@ -1,6 +1,9 @@
 #ifndef GBLOCK_H
 #define GBLOCK_H
 
+#include "portnode.h"
+#include "rectangle.h"
+
 #include <QBrush>
 #include <QPen>
 #include <QGraphicsEllipseItem>
@@ -15,21 +18,15 @@
  */
 class gBlock
 {
-
 public:
-    /**
-     * @brief gBlock Constructor of class
-     * @param scene Scene
-     * @param pos Position
-     */
-    explicit gBlock(QGraphicsScene *scene, QPointF pos);
 
     gBlock(QGraphicsScene *scene, QPointF pos, Block *block);
     ~gBlock();
 
 private slots:
 
-
+protected:
+    void redrawPorts();
 private:
     QGraphicsItemGroup *group;
 
@@ -41,17 +38,7 @@ private:
     /**
      * @brief rectangle GUI rectangle
      */
-    QGraphicsRectItem *rectangle;
-
-    /**
-     * @brief X
-     */
-    int X = 100;
-
-    /**
-     * @brief Y
-     */
-    int Y = 50;
+    Rectangle *rectangle;
 
     int nodePosStartY = 25;
     /**
@@ -60,6 +47,7 @@ private:
     QPointF pos;
 
     Block *block;
+    std::vector<PortNode *> nodes;
 };
 
 #endif // GBLOCK_H

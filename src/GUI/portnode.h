@@ -8,13 +8,14 @@
 #include <QBrush>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
+#include <QGraphicsScene>
 
 class Arrow;
 
 class PortNode : public QGraphicsItem
 {
 public:
-    explicit PortNode();
+    explicit PortNode(QGraphicsScene *scene);
 
     void addArrow(Arrow *arrow);
     QList<Arrow *> arrows() const;
@@ -30,11 +31,13 @@ protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
     QList<Arrow *> arrowList;
     QPointF newPos;
+    QGraphicsScene *scene;
 };
 
 #endif // PORTNODE_H

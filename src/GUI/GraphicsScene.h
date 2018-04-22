@@ -31,6 +31,7 @@ public:
      * @param mouseEvent Mouse event
      */
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent);
+
     /*virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * mouseEvent);
     virtual void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent);
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent * mouseEvent);*/

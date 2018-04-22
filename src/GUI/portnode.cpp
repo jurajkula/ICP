@@ -1,9 +1,11 @@
 #include "portnode.h"
 
-PortNode::PortNode()
+PortNode::PortNode(QGraphicsScene *scene)
 {
-    setFlag(ItemIsMovable);
+    this->scene = scene;
     setFlag(ItemSendsGeometryChanges);
+
+    this->scene->addItem(this);
 }
 
 QRectF PortNode::boundingRect() const
@@ -71,12 +73,20 @@ QVariant PortNode::itemChange(GraphicsItemChange change, const QVariant &value)
 
 void PortNode::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    qDebug("Pressed");
     update();
     QGraphicsItem::mousePressEvent(event);
+}
+
+void PortNode::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
+    qDebug("Move");
+    update();
+    QGraphicsItem::mouseMoveEvent(event);
 }
 
 void PortNode::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     update();
+    qDebug("Release");
     QGraphicsItem::mouseReleaseEvent(event);
 }
