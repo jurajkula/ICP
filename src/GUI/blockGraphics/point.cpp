@@ -1,11 +1,16 @@
 #include "point.h"
 
-point::point(PortNode *node)
+point::point(PortNode *node, QGraphicsScene *scene)
 {
     this->node = node;
+    this->scene = scene;
 
     setFlag(ItemSendsGeometryChanges);
     setFlag(ItemIsMovable);
+
+    line = new Arrow(node, this);
+    scene->addItem(line);
+    line->adjust();
 }
 
 QRectF point::boundingRect() const
@@ -17,7 +22,7 @@ QRectF point::boundingRect() const
 QPainterPath point::shape() const
 {
     QPainterPath path;
-    path.addEllipse(-5, -5, 10, 10);
+    path.addEllipse(this->boundingRect());
     return path;
 }
 
@@ -32,7 +37,7 @@ QVariant point::itemChange(GraphicsItemChange change, const QVariant &value)
 {
     switch (change) {
     case ItemPositionHasChanged:
-
+        this->line->adjust();
         break;
     default:
         break;
@@ -42,13 +47,13 @@ QVariant point::itemChange(GraphicsItemChange change, const QVariant &value)
 
 void point::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    qDebug("Pressed");
+    //qDebug("Pressed");
     update();
     QGraphicsItem::mousePressEvent(event);
 }
 
 void point::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
-    qDebug("Move");
+    //qDebug("Move");
     update();
     QGraphicsItem::mouseMoveEvent(event);
 }
@@ -56,6 +61,10 @@ void point::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 void point::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     update();
-    qDebug("Release");
+    //qDebug("Release");
     QGraphicsItem::mouseReleaseEvent(event);
+
+    //TODO kontorla, ci sa nenamapovalo na iny port, ak ano, kontrola +
+
+    this->setPos(this->node->pos());
 }

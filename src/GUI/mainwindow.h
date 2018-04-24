@@ -6,12 +6,11 @@
 #include <QGraphicsView>
 #include <QMessageBox>
 #include <QToolBar>
+#include <QFileDialog>
 
 #include "ui_mainwindow.h"
 #include "GraphicsScene.h"
 #include "../LOGIC/Scheme.hpp"
-
-
 
 namespace Ui {
 class MainWindow;

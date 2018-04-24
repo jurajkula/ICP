@@ -10,7 +10,7 @@ PortNode::PortNode(QGraphicsScene *scene)
     setFlag(ItemSendsGeometryChanges);
 
     this->scene->addItem(this);
-    p = new point(this);
+    p = new point(this, scene);
     this->scene->addItem(p);
 }
 
@@ -49,27 +49,14 @@ void PortNode::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     painter->drawEllipse(-10, -10, 20, 20);
 }
 
-
-// TODO DELETEEEEEEEEEEEEEEE MAYBEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-void PortNode::addArrow(Arrow *arrow)
-{
-    arrowList << arrow;
-    arrow->adjust();
-}
-
-QList<Arrow *> PortNode::arrows() const
-{
-    return arrowList;
-}
-
 QVariant PortNode::itemChange(GraphicsItemChange change, const QVariant &value)
 {
     switch (change) {
     case ItemPositionHasChanged:
         this->p->setPos(this->pos());
-        foreach (Arrow *arrow, arrowList)
-            arrow->adjust();
-        //graph->itemMoved();
+
+        //TODO pridanie portu, adjust len v pripade ze je port spojeny
+        //arrow->adjust();
         break;
     default:
         break;

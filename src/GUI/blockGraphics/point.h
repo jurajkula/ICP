@@ -7,13 +7,15 @@
 #include <QVariant>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
+#include "portnode.h"
 
 class PortNode;
+class Arrow;
+
 class point : public QGraphicsItem
 {
 public:
-    point(PortNode *node);
-
+    point(PortNode *node, QGraphicsScene *scene);
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     QRectF boundingRect() const override;
@@ -22,12 +24,13 @@ public:
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
-
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
     PortNode *node;
+    Arrow *line;
+    QGraphicsScene *scene;
 };
 
 #endif // POINT_H

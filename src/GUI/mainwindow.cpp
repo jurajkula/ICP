@@ -1,7 +1,4 @@
 #include "mainwindow.h"
-#include<QFileDialog>
-#include<QMessageBox>
-
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
     QMainWindow(parent),
@@ -22,7 +19,6 @@ MainWindow::MainWindow(std::string name, QWidget *parent) :
 
     //zobrazenie sceny
     view->setScene(scene);
-
 
     this->setCentralWidget(view);
 }

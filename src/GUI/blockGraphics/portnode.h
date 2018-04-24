@@ -18,9 +18,6 @@ class PortNode : public QGraphicsItem
 public:
     explicit PortNode(QGraphicsScene *scene);
 
-    void addArrow(Arrow *arrow);
-    QList<Arrow *> arrows() const;
-
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
@@ -37,7 +34,7 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    QList<Arrow *> arrowList;
+    Arrow * arrow;
     QPointF newPos;
     QGraphicsScene *scene;
     point *p;
