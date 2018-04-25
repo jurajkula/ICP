@@ -7,6 +7,8 @@
 #include <QVariant>
 #include <QPainter>
 #include <QStyleOptionGraphicsItem>
+#include <QGraphicsSceneMouseEvent>
+
 #include "portnode.h"
 
 class PortNode;
@@ -21,12 +23,16 @@ public:
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+    enum { Type = UserType + 1 };
+    int type() const override;
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 private:
     PortNode *node;
     Arrow *line;

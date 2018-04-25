@@ -74,6 +74,11 @@ void port::setConnection(port *p) {
     this->changeConnection();
 }
 
+void port::destroyConnection() {
+    this->connect.p = nullptr;
+    this->changeConnection();
+}
+
 int port::getStatus() {
     return this->status;
 }

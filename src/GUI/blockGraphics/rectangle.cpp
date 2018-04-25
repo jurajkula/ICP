@@ -58,3 +58,7 @@ QVariant Rectangle::itemChange(GraphicsItemChange change, const QVariant &value)
 
     return QGraphicsItem::itemChange(change, value);
 }
+
+int Rectangle::type() const {
+    return Type;
+}

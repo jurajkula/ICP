@@ -34,6 +34,37 @@ void Scheme::setName(std::string s) {
     this->name = s;
 }
 
+void Scheme::destroyConnection(port *pOUT, port *pIN) {
+    pOUT->destroyConnection();
+    pIN->destroyConnection();
+}
+
+bool Scheme::cycleConnection(port *pOUT, port *pIN) {
+    for (Block *b : blocks) {
+        if (b->getID() != pOUT->getID())
+            continue;
+
+        for(port *p : *(b->getPorts())) {
+            if ((p->isConnected()) && (p->getStatus() == INPUT)) {
+                if (pIN == p) {
+                    return true;
+                }
+                else {
+                    if (cycleConnection(p->getConnection().p, pIN)) {
+                        return true;
+                    }
+                }
+            }
+            else if ((!p->isConnected()) && (p->getStatus() == INPUT)) {
+                if (pIN == p) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 bool Scheme::createConnection(port *pOUT, port *pIN) {
     if (pIN->isConnected() || pOUT->isConnected())
         return false;
@@ -45,6 +76,9 @@ bool Scheme::createConnection(port *pOUT, port *pIN) {
         return false;
 
     if (pIN->getID() == pOUT->getID())
+        return false;
+
+    if (cycleConnection(pOUT, pIN))
         return false;
 
     pIN->setConnection(pOUT);

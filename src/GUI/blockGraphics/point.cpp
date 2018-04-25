@@ -47,24 +47,79 @@ QVariant point::itemChange(GraphicsItemChange change, const QVariant &value)
 
 void point::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    //qDebug("Pressed");
+    if ((this->node->getLogicPort()->getStatus() == INPUT) || (this->node->getLogicPort()->isConnected()))
+        return;
+
     update();
     QGraphicsItem::mousePressEvent(event);
 }
 
 void point::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
-    //qDebug("Move");
+    if ((this->node->getLogicPort()->getStatus() == INPUT) || (this->node->getLogicPort()->isConnected()))
+        return;
+
     update();
     QGraphicsItem::mouseMoveEvent(event);
 }
 
 void point::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+    if ((this->node->getLogicPort()->getStatus() == INPUT) || (this->node->getLogicPort()->isConnected()))
+        return;
+
     update();
-    //qDebug("Release");
     QGraphicsItem::mouseReleaseEvent(event);
 
-    //TODO kontorla, ci sa nenamapovalo na iny port, ak ano, kontrola +
+    foreach (QGraphicsItem *item, scene->items()) {
+        PortNode *n = qgraphicsitem_cast<PortNode *>(item);
+        if(!n)
+            continue;
+
+        if (n == this->node)
+            continue;
+
+        if(n->collidesWithItem(this)) {
+            qDebug("Port to Port");
+            if (node->getScheme()->createConnection(this->node->getLogicPort(), n->getLogicPort())) {
+                Arrow *portArrow = new Arrow(this->node, n);
+                scene->addItem(portArrow);
+                portArrow->adjust();
+                qDebug("CONNECTED");
+            }
+            break;
+        }
+    }
 
     this->setPos(this->node->pos());
+}
+
+void point::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::RightButton) {
+        if (!this->node->getLogicPort()->isConnected())
+            return;
+
+        qDebug("DELETE");
+        Arrow *portArrow = this->node->getArrow();
+
+        if (this->node->getLogicPort()->getStatus() == INPUT) {
+            node->getScheme()->destroyConnection(portArrow->getSourceNode()->getLogicPort(), this->node->getLogicPort());
+            portArrow->getSourceNode()->deleteArrowPointer();
+        }
+        else {
+            node->getScheme()->destroyConnection(this->node->getLogicPort(), portArrow->getDestNode()->getLogicPort());
+            portArrow->getDestNode()->deleteArrowPointer();
+        }
+
+        this->node->deleteArrowPointer();
+        this->scene->removeItem(portArrow);
+        delete(portArrow);
+        portArrow = nullptr;
+
+        update();
+        QGraphicsItem::mouseDoubleClickEvent(event);
+    }
+}
+
+int point::type() const {
+    return Type;
 }

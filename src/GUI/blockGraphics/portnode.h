@@ -3,6 +3,7 @@
 
 #include "arrow.h"
 #include "point.h"
+#include <src/LOGIC/Scheme.hpp>
 
 #include <QGraphicsItem>
 #include <QObject>
@@ -16,12 +17,20 @@ class point;
 class PortNode : public QGraphicsItem
 {
 public:
-    explicit PortNode(QGraphicsScene *scene);
+    explicit PortNode(port *logicPort, Scheme *scheme, QGraphicsScene *scene);
 
     QRectF boundingRect() const override;
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    enum { Type = UserType + 2 };
+    int type() const override;
+
+    Scheme *getScheme();
+    port *getLogicPort();
+    void addArrow(Arrow * arrow);
+    Arrow *getArrow();
+    void deleteArrowPointer();
 signals:
 
 public slots:
@@ -38,6 +47,8 @@ private:
     QPointF newPos;
     QGraphicsScene *scene;
     point *p;
+    Scheme *scheme;
+    port *logicPort;
 };
 
 #endif // PORTNODE_H

@@ -7,8 +7,8 @@ Arrow::Arrow(PortNode *source, PortNode *dest)
     this->source = source;
     this->dest = dest;
     this->isDestP = false;
-    //source->addArrow(this);
-    //dest->addArrow(this);
+    source->addArrow(this);
+    dest->addArrow(this);
     adjust();
 }
 
@@ -50,6 +50,16 @@ void Arrow::adjust()
     } else {
         sourcePoint = destPoint = line->p1();
     }
+}
+
+PortNode *Arrow::getDestNode()
+{
+    return this->dest;
+}
+
+PortNode *Arrow::getSourceNode()
+{
+    return this->source;
 }
 
 QRectF Arrow::boundingRect() const
@@ -108,3 +118,6 @@ void Arrow::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *
     painter->drawPolygon(QPolygonF() << line.p2() << destArrowP1 << destArrowP2);
 }
 
+int Arrow::type() const {
+    return Type;
+}

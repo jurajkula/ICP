@@ -18,6 +18,9 @@ public:
     QPainterPath shape() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    enum { Type = UserType + 3 };
+    int type() const override;
+
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 private:
     QGraphicsScene *scene;

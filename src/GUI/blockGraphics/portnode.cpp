@@ -1,12 +1,13 @@
-#include "point.h"
 #include "portnode.h"
 
 #include <QEvent>
 #include <QMouseEvent>
 
-PortNode::PortNode(QGraphicsScene *scene)
+PortNode::PortNode(port *logicPort, Scheme *scheme, QGraphicsScene *scene)
 {
     this->scene = scene;
+    this->scheme = scheme;
+    this->logicPort = logicPort;
     setFlag(ItemSendsGeometryChanges);
 
     this->scene->addItem(this);
@@ -55,8 +56,9 @@ QVariant PortNode::itemChange(GraphicsItemChange change, const QVariant &value)
     case ItemPositionHasChanged:
         this->p->setPos(this->pos());
 
-        //TODO pridanie portu, adjust len v pripade ze je port spojeny
-        //arrow->adjust();
+        if (this->logicPort->getConnection().connected) {
+            arrow->adjust();
+        }
         break;
     default:
         break;
@@ -83,4 +85,30 @@ void PortNode::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     update();
     qDebug("Release");
     QGraphicsItem::mouseReleaseEvent(event);
+}
+
+Scheme *PortNode::getScheme() {
+    return this->scheme;
+}
+
+port *PortNode::getLogicPort() {
+    return this->logicPort;
+}
+
+int PortNode::type() const {
+    return Type;
+}
+
+void PortNode::addArrow(Arrow *arrow) {
+    this->arrow = arrow;
+}
+
+Arrow *PortNode::getArrow()
+{
+    return this->arrow;
+}
+
+void PortNode::deleteArrowPointer()
+{
+    this->arrow = nullptr;
 }

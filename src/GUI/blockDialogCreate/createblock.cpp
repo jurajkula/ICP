@@ -146,8 +146,9 @@ void createBlock::on_buttonBox_accepted()
     // Create block + create graphics represent of block + create gui of ports
     Block *block = new Block(&ports, rules, scheme->generateID());
     scheme->blockAdd(block);
+    block->setPortsID();
 
-    new gBlock(this->scene, this->pos, block);
+    new gBlock(scheme, scene, pos, block);
     this->done(QDialog::Accepted);
 }
 

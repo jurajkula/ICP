@@ -16,10 +16,15 @@ public:
     Arrow(PortNode *sourceNode, point *destPoint);
 
     void adjust();
+    PortNode *getDestNode();
+    PortNode *getSourceNode();
 
 protected:
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+    enum { Type = UserType + 4 };
+    int type() const override;
 private:
     PortNode *source, *dest;
     point *destP;

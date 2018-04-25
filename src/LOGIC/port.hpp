@@ -134,6 +134,8 @@ public:
      */
     void changeConnection();
 
+    void destroyConnection();
+
     /**
      * @brief getStatus Function, which return status
      * @return Return status
@@ -157,6 +159,7 @@ public:
      * @param ID A new ID
      */
     void setID(int ID);
+
 
 
 private:

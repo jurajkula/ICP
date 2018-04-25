@@ -54,13 +54,16 @@ public:
      */
     void setName(std::string s);
 
+    void destroyConnection(port *pOUT, port *pIN);
+    bool cycleConnection(port *pOUT, port *pIN);
+
     /**
      * @brief createConnection Function, which set connection between 2 ports
      * @param p1 Output port
      * @param p2 Input port
      * @return Return TRUE, if was possible create connection, else return FALSE
      */
-    bool createConnection(port *p1, port *p2);
+    bool createConnection(port *out, port *in);
 
     /**
      * @brief compute Function, which run computing
@@ -73,6 +76,7 @@ public:
      * @return Generated ID
      */
     int generateID();
+
 
 private:
     /**

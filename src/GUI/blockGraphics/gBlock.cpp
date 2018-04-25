@@ -1,10 +1,11 @@
 #include "gBlock.h"
 
-gBlock::gBlock(QGraphicsScene *scene, QPointF pos, Block *block)
+gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)
 {
     this->scene = scene;
     this->pos = pos;
     this->block = block;
+    this->scheme = scheme;
 
     if (block->getPortsInputCount() >= block->getPortsOutputCount()) {
         rectangle = new Rectangle(this->scene, block->getPortsInputCount(), &nodes, pos);
@@ -16,19 +17,20 @@ gBlock::gBlock(QGraphicsScene *scene, QPointF pos, Block *block)
     rectangle->setPos(pos);
     scene->addItem(rectangle);
 
-
-    for (int i = 0; i < block->getPortsInputCount(); i++) {
-        PortNode *pNode = new PortNode(scene);
-        pNode->setPos(pos.x() +  0, pos.y() + nodePosStartY + rectangle->getY() * i);
+    int inPorts = 0;
+    int outPorts = 0;
+    for (port *p : *(block->getPorts())) {
+        PortNode *pNode = new PortNode(p, scheme, scene);
         nodes.push_back(pNode);
-        //scene->addItem(pNode);
-    }
 
-    for (int i = 0; i < block->getPortsOutputCount(); i++) {
-        PortNode *pNode = new PortNode(scene);
-        pNode->setPos(pos.x() + rectangle->getX(), pos.y() + nodePosStartY + rectangle->getY() * i);
-        nodes.push_back(pNode);
-        //scene->addItem(pNode);
+        if (p->getStatus() == INPUT) {
+            pNode->setPos(pos.x() +  0, pos.y() + nodePosStartY + rectangle->getY() * inPorts);
+            inPorts++;
+        }
+        else {
+            pNode->setPos(pos.x() + rectangle->getX(), pos.y() + nodePosStartY + rectangle->getY() * outPorts);
+            outPorts++;
+        }
     }
 }
 

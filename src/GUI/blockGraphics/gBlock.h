@@ -3,6 +3,7 @@
 
 #include "rectangle.h"
 
+
 #include <QGraphicsEllipseItem>
 #include <QMouseEvent>
 #include <QDebug>
@@ -16,7 +17,7 @@ class gBlock
 {
 public:
 
-    gBlock(QGraphicsScene *scene, QPointF pos, Block *block);
+    gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block);
     ~gBlock();
 
 private slots:
@@ -44,6 +45,7 @@ private:
 
     Block *block;
     std::vector<PortNode *> nodes;
+    Scheme *scheme;
 };
 
 #endif // GBLOCK_H
