@@ -22,6 +22,11 @@ public:
     int type() const override;
 
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
+    bool containsP(const QPointF &point) const;
+protected:
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
+    void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 private:
     QGraphicsScene *scene;
 

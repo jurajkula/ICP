@@ -10,10 +10,22 @@ GraphicsScene::GraphicsScene(Scheme *s, QObject *parent) :
 void GraphicsScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent)
 {
     if (mouseEvent->button() == Qt::LeftButton) {
+        bool isScene = true;
 
-        // TODO inside main window
-        createBlock *bD = new createBlock(this->scheme, this, mouseEvent->scenePos());
-        bD->show();
+        for (QGraphicsItem *item : this->items()) {
+            Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+            if(!r)
+                continue;
+
+            if(r->containsP(mouseEvent->scenePos())) {
+                isScene = false;
+            }
+        }
+
+        if (isScene) {
+            createBlock *bD = new createBlock(this->scheme, this, mouseEvent->scenePos());
+            bD->show();
+        }
     }
     QGraphicsScene::mouseDoubleClickEvent(mouseEvent);
 }

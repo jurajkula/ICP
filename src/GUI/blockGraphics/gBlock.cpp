@@ -11,7 +11,7 @@ gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)
         rectangle = new Rectangle(this->scene, block->getPortsInputCount(), &nodes, pos);
     }
     else {
-        rectangle = new Rectangle(this->scene, block->getPortsInputCount(), &nodes, pos);
+        rectangle = new Rectangle(this->scene, block->getPortsOutputCount(), &nodes, pos);
     }
 
     rectangle->setPos(pos);

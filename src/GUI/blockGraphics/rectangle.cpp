@@ -9,6 +9,7 @@ Rectangle::Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *n
 
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
+    this->setAcceptHoverEvents(true);
 }
 
 int Rectangle::getX() {
@@ -61,4 +62,31 @@ QVariant Rectangle::itemChange(GraphicsItemChange change, const QVariant &value)
 
 int Rectangle::type() const {
     return Type;
+}
+
+void Rectangle::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+    qDebug("Enter rectangle");
+    update();
+}
+
+void Rectangle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+    qDebug("Leave rectangle");
+    update();
+}
+
+void Rectangle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        qDebug("Double click on rectangle");
+    }
+}
+
+bool Rectangle::containsP(const QPointF &point) const {
+    if ((point.x() >= this->pos().x() + this->boundingRect().x()) &&
+        (point.x() <= this->pos().x() + this->boundingRect().x() + boundingRect().width()) &&
+        (point.y() >= this->pos().y() + this->boundingRect().y()) &&
+        (point.y() <= this->pos().y() + this->boundingRect().y() + boundingRect().height()))
+    {
+        return true;
+    }
+    return false;
 }

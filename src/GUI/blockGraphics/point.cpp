@@ -7,6 +7,7 @@ point::point(PortNode *node, QGraphicsScene *scene)
 
     setFlag(ItemSendsGeometryChanges);
     setFlag(ItemIsMovable);
+    this->setAcceptHoverEvents(true);
 
     line = new Arrow(node, this);
     scene->addItem(line);
@@ -122,4 +123,14 @@ void point::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 
 int point::type() const {
     return Type;
+}
+
+void point::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+    qDebug("Enter port");
+    update();
+}
+
+void point::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+    qDebug("Leave port");
+    update();
 }
