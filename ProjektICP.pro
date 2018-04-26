@@ -54,7 +54,11 @@ SOURCES += \
     src/GUI/blockGraphics/portnode.cpp \
     src/GUI/blockGraphics/arrow.cpp \
     src/GUI/blockGraphics/rectangle.cpp \
-    src/GUI/blockGraphics/point.cpp
+    src/GUI/blockGraphics/point.cpp \
+    src/GUI/blockGraphics/rectangleinfodialogdata.cpp \
+    src/GUI/blockGraphics/rectangleinfodialog.cpp \
+    src/GUI/blockGraphics/portinfodialog.cpp \
+    src/GUI/blockGraphics/portinfodialogdata.cpp
 
 
 HEADERS += \
@@ -79,7 +83,11 @@ HEADERS += \
     src/GUI/blockGraphics/portnode.h \
     src/GUI/blockGraphics/arrow.h \
     src/GUI/blockGraphics/rectangle.h \
-    src/GUI/blockGraphics/point.h
+    src/GUI/blockGraphics/point.h \
+    src/GUI/blockGraphics/rectangleinfodialogdata.h \
+    src/GUI/blockGraphics/rectangleinfodialog.h \
+    src/GUI/blockGraphics/portinfodialog.h \
+    src/GUI/blockGraphics/portinfodialogdata.h
 
 FORMS += \
     src/GUI/mainwindow.ui \
@@ -93,7 +101,11 @@ FORMS += \
     src/GUI/blockDialogCreate/tabPort/portdataform.ui \
     src/GUI/blockDialogCreate/tabPort/portadddataform.ui \
     src/GUI/blockDialogCreate/tabMath/mathschemaform.ui \
-    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.ui
+    src/GUI/blockDialogCreate/tabMath/mathaddschemaform.ui \
+    src/GUI/blockGraphics/rectangleinfodialogdata.ui \
+    src/GUI/blockGraphics/rectangleinfodialog.ui \
+    src/GUI/blockGraphics/portinfodialog.ui \
+    src/GUI/blockGraphics/portinfodialogdata.ui
 
 
 RESOURCES += \

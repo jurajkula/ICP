@@ -4,8 +4,8 @@
 
 #include "port.hpp"
 
-data CreateData(std::string name, double value) {
-    data d;
+pData CreateData(std::string name, double value) {
+    pData d;
     d.name = name;
     d.value = value;
     return d;
@@ -17,23 +17,23 @@ port::port(int status) {
 }
 
 bool port::findData(std::string s) {
-    for(data d : this->type) {
+    for(pData d : this->type) {
         if (d.name == s)
             return true;
     }
     return false;
 }
 
-data port::returnData(std::string s) {
-    data r;
-    for(data d : this->type) {
+pData port::returnData(std::string s) {
+    pData r;
+    for(pData d : this->type) {
         if (d.name == s)
             r = d;
     }
     return r;
 }
 
-bool port::addData(data d) {
+bool port::addData(pData d) {
     if (!findData(d.name)) {
         type.push_back(d);
         return true;
@@ -41,7 +41,7 @@ bool port::addData(data d) {
     return false;
 }
 
-std::vector<data> port::getData() {
+std::vector<pData> port::getData() {
     return this->type;
 }
 

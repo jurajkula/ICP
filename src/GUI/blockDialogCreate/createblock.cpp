@@ -132,6 +132,7 @@ void createBlock::on_buttonBox_accepted()
         rule r;
         r.output = mathForm->getUI()->mathOutput->text().toStdString();
         r.tokens = splitStringFormula(mathForm->getUI()->mathSchema->text().toStdString() + "\n");
+        r.infoSchema = mathForm->getUI()->mathSchema->text().toStdString();
 
         if(!checkSemantics(r.tokens, ports)) {
             this->setErrorMessage("Port in math schema is not found.");

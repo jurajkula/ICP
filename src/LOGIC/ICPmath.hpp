@@ -65,6 +65,8 @@ struct rule {
      */
     std::string output;
 
+    std::string infoSchema;
+
     /**
      * @brief isOK
      */

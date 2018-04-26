@@ -9,6 +9,7 @@
 #include <QStyleOptionGraphicsItem>
 #include <QGraphicsSceneMouseEvent>
 
+#include "portinfodialog.h"
 #include "portnode.h"
 
 class PortNode;
@@ -39,6 +40,7 @@ private:
     PortNode *node;
     Arrow *line;
     QGraphicsScene *scene;
+    portInfoDialog *infoDialog;
 };
 
 #endif // POINT_H

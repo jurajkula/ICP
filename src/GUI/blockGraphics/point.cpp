@@ -12,6 +12,10 @@ point::point(PortNode *node, QGraphicsScene *scene)
     line = new Arrow(node, this);
     scene->addItem(line);
     line->adjust();
+
+    infoDialog = new portInfoDialog(this->node->getLogicPort());
+    scene->addWidget(infoDialog);
+    infoDialog->hide();
 }
 
 QRectF point::boundingRect() const
@@ -39,6 +43,7 @@ QVariant point::itemChange(GraphicsItemChange change, const QVariant &value)
     switch (change) {
     case ItemPositionHasChanged:
         this->line->adjust();
+        this->infoDialog->setPos(this->node->pos());
         break;
     default:
         break;
@@ -127,10 +132,12 @@ int point::type() const {
 
 void point::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     qDebug("Enter port");
+    this->infoDialog->show();
     update();
 }
 
 void point::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
     qDebug("Leave port");
+    this->infoDialog->hide();
     update();
 }

@@ -2,13 +2,14 @@
 #define RECTANGLE_H
 
 #include "portnode.h"
+#include "rectangleinfodialog.h"
 
 #include <QPen>
 
 class Rectangle : public QGraphicsRectItem
 {
 public:
-    Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos);
+    Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block);
 
     int getX();
     int getY();
@@ -45,6 +46,8 @@ private:
     std::vector<PortNode*> *nodes;
 
     QPointF Ppos;
+
+    rectangleInfoDialog *infoDialog;
 };
 
 #endif // RECTANGLE_H

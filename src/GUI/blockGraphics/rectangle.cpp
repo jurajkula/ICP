@@ -1,6 +1,6 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos)
+Rectangle::Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block)
 {
     this->scene = scene;
     this->Ymul = Ymul;
@@ -10,6 +10,11 @@ Rectangle::Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *n
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
     this->setAcceptHoverEvents(true);
+
+    infoDialog = new rectangleInfoDialog(block);
+    //infoDialog->show();
+    scene->addWidget(infoDialog);
+    infoDialog->hide();
 }
 
 int Rectangle::getX() {
@@ -52,6 +57,7 @@ QVariant Rectangle::itemChange(GraphicsItemChange change, const QVariant &value)
             p->setPos(this->pos().x() - this->Ppos.x() + p->pos().x(), this->pos().y() - this->Ppos.y() + p->pos().y());
         }
         Ppos = this->pos();
+        infoDialog->setPos(this->pos(), this->X);
         break;
     default:
         break;
@@ -66,11 +72,13 @@ int Rectangle::type() const {
 
 void Rectangle::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
     qDebug("Enter rectangle");
+    this->infoDialog->show();
     update();
 }
 
 void Rectangle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
     qDebug("Leave rectangle");
+    this->infoDialog->hide();
     update();
 }
 

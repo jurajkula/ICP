@@ -11,7 +11,7 @@
 /**
  * @brief The data struct
  */
-struct data {
+struct pData {
     /**
      * @brief name Name of var
      */
@@ -37,7 +37,7 @@ enum portStatus{
  * @param value Value of var
  * @return Return created data
  */
-data CreateData(std::string name, double value);
+pData CreateData(std::string name, double value);
 
 /**
  * @brief The port class
@@ -64,14 +64,14 @@ public:
      * @param s Name of var
      * @return Return data
      */
-    data returnData(std::string s);
+    pData returnData(std::string s);
 
     /**
      * @brief addData Support function, which add data to vector and return successful state
      * @param d Data, which will be added to vector
      * @return Return TRUE, if data was successfuly added, alese return FALSE
      */
-    bool addData(data d);
+    bool addData(pData d);
 
     /**
      * @brief clearData Support function, which clear all data
@@ -82,7 +82,7 @@ public:
      * @brief getData Function, which return vector of data
      * @return Return data
      */
-    std::vector<data> getData();
+    std::vector<pData> getData();
 
     /**
      * @brief isUsed Support function, which return state, if port is used.
@@ -166,7 +166,7 @@ private:
     /**
      * @brief type vector of all data
      */
-    std::vector<data> type;
+    std::vector<pData> type;
 
     /**
      * @brief used Var, i port is used, default is set to false
