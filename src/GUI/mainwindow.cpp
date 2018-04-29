@@ -1,3 +1,4 @@
+#include "graphicsview.h"
 #include "mainwindow.h"
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
@@ -13,7 +14,8 @@ MainWindow::MainWindow(std::string name, QWidget *parent) :
     scene = new GraphicsScene(this->scheme, this);
 
     //novy graphics view
-    QGraphicsView *view = new QGraphicsView(this);
+    //QGraphicsView *view = new QGraphicsView(this);
+    GraphicsView *view = new GraphicsView();
     view->setSceneRect(-300,-300, 300, 300);
     this->resize(600, 600);
 

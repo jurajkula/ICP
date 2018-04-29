@@ -1,11 +1,15 @@
 #include "rectangle.h"
 
-Rectangle::Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block)
+#include <src/GUI/blockDialogCreate/createblock.h>
+
+Rectangle::Rectangle(Scheme *scheme, QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block)
 {
     this->scene = scene;
     this->Ymul = Ymul;
     this->nodes = nodes;
     this->Ppos = Ppos;
+    this->scheme = scheme;
+    this->block = block;
 
     setFlag(QGraphicsItem::ItemIsMovable);
     setFlag(QGraphicsItem::ItemSendsGeometryChanges);
@@ -85,6 +89,8 @@ void Rectangle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
 void Rectangle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         qDebug("Double click on rectangle");
+        createBlock *bD = new createBlock(this->scheme, this->scene, this->pos(), this->block);
+        bD->show();
     }
 }
 
@@ -97,4 +103,17 @@ bool Rectangle::containsP(const QPointF &point) const {
         return true;
     }
     return false;
+}
+
+Block *Rectangle::getLogicBlock()
+{
+    return this->block;
+}
+
+void Rectangle::removeGBlock() {
+    for (PortNode *node : *(this->nodes)) {
+        node->deleteArrow();
+        this->scene->removeItem(node);
+    }
+    this->scene->removeItem(this);
 }

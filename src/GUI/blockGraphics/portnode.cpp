@@ -112,3 +112,7 @@ void PortNode::deleteArrowPointer()
 {
     this->arrow = nullptr;
 }
+
+void PortNode::deleteArrow() {
+    this->p->removeArrow();
+}

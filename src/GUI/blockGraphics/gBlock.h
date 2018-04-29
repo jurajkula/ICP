@@ -19,6 +19,7 @@ public:
 
     gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block);
     ~gBlock();
+    Block *getLogicBlock();
 
 private slots:
 

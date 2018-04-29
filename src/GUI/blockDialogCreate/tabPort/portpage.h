@@ -5,6 +5,7 @@
 #include "portform.h"
 
 #include <QDebug>
+#include <src/LOGIC/port.hpp>
 
 namespace Ui {
 class portPage;
@@ -25,6 +26,7 @@ public:
      * @param parent Parent window
      */
     explicit portPage(std::vector<portPage *> *portPages, portToolBox *box, QWidget *parent = 0);
+    portPage(std::vector<portPage *> *portPages, portToolBox *b, port *p, QWidget *parent = 0);
     ~portPage();
 
     /**

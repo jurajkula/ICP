@@ -40,6 +40,55 @@ createBlock::createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, QWidget 
     // *********************************
 }
 
+createBlock::createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, Block *block, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::createBlock)
+{
+    ui->setupUi(this);
+    this->setFixedSize(this->size());
+    this->scene = scene;
+    this->pos = pos;
+    this->scheme = s;
+    this->oldblock = block;
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    QVBoxLayout *mathTabLayout = new QVBoxLayout();
+
+    ui->scrollAreaWidgetContents->setLayout(layout);
+    ui->scrollAreaWidgetContents_2->setLayout(mathTabLayout);
+
+    // PORT TAB
+    portToolBox *pTB = new portToolBox();
+    portAddForm *pAF = new portAddForm(layout, &portPages, &portForms, pTB);
+
+    portPage *w;
+    for(port *p : *(block->getPorts())) {
+        w = new portPage(&portPages, pTB, p);
+        portPages.push_back(w);
+        pTB->addItem(w,"Port");
+    }
+
+    layout->addWidget(pTB);
+    layout->addWidget(pAF);
+
+    // *********************************
+
+    // MATH TAB
+    mathAddSchemaForm *mAddForm = new mathAddSchemaForm(mathTabLayout, &mathForms);
+    mathSchemaForm *mForm;
+
+    for (rule r : block->getRules()) {
+        mForm = new mathSchemaForm(mathTabLayout, &mathForms);
+        mForm->getUI()->mathOutput->setText(QString::fromStdString(r.output));
+        mForm->getUI()->mathSchema->setText(QString::fromStdString(r.infoSchema));
+        mathForms.push_back(mForm);
+        mathTabLayout->addWidget(mForm);
+    }
+
+    mathTabLayout->addWidget(mAddForm);
+    // *********************************
+}
+
 createBlock::~createBlock()
 {
     delete ui;
@@ -145,11 +194,29 @@ void createBlock::on_buttonBox_accepted()
 
 
     // Create block + create graphics represent of block + create gui of ports
-    Block *block = new Block(&ports, rules, scheme->generateID());
-    scheme->blockAdd(block);
-    block->setPortsID();
+    //Block *block;
+    if(this->oldblock) {
+        this->oldblock->setPorts(&ports);
+        this->oldblock->setPortsID();
+        this->oldblock->setRules(rules);
 
-    new gBlock(scheme, scene, pos, block);
+        for(QGraphicsItem *item : this->scene->items()) {
+            Rectangle *block = qgraphicsitem_cast<Rectangle *>(item);
+            if(!block)
+                continue;
+
+            if (block->getLogicBlock()->getID() == this->oldblock->getID()) {
+                block->removeGBlock();
+            }
+        }
+    }
+    else {
+        oldblock = new Block(&ports, rules, scheme->generateID());
+        scheme->blockAdd(oldblock);
+        oldblock->setPortsID();
+    }
+
+    new gBlock(scheme, scene, pos, oldblock);
     this->done(QDialog::Accepted);
 }
 

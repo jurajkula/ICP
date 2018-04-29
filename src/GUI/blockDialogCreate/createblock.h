@@ -33,6 +33,7 @@ public:
      * @param parent Parent window
      */
     explicit createBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, QWidget *parent = 0);
+    createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, Block *block, QWidget *parent = 0);
     ~createBlock();
 
     /**
@@ -45,6 +46,7 @@ public:
      * @brief accept Rewrite function accept() - do nothing
      */
     virtual void accept();
+
 private slots:
 
     /**
@@ -103,6 +105,8 @@ private:
      * @brief rules Rules of block
      */
     std::vector<rule> rules;
+
+    Block *oldblock = nullptr;
 };
 
 #endif // CREATEBLOCK_H

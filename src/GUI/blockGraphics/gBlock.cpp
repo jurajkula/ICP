@@ -8,10 +8,10 @@ gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)
     this->scheme = scheme;
 
     if (block->getPortsInputCount() >= block->getPortsOutputCount()) {
-        rectangle = new Rectangle(this->scene, block->getPortsInputCount(), &nodes, pos, block);
+        rectangle = new Rectangle(scheme, this->scene, block->getPortsInputCount(), &nodes, pos, block);
     }
     else {
-        rectangle = new Rectangle(this->scene, block->getPortsOutputCount(), &nodes, pos, block);
+        rectangle = new Rectangle(scheme, this->scene, block->getPortsOutputCount(), &nodes, pos, block);
     }
 
     rectangle->setPos(pos);
@@ -32,6 +32,11 @@ gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)
             outPorts++;
         }
     }
+}
+
+Block *gBlock::getLogicBlock()
+{
+    return this->block;
 }
 
 void gBlock::redrawPorts() {

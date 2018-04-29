@@ -39,13 +39,8 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
-   <widget class="QWidget" name="tabGeneral">
-    <attribute name="title">
-     <string>General</string>
-    </attribute>
-   </widget>
    <widget class="QWidget" name="tabPorts">
     <attribute name="title">
      <string>Ports</string>

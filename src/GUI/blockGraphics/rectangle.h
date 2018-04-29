@@ -9,7 +9,7 @@
 class Rectangle : public QGraphicsRectItem
 {
 public:
-    Rectangle(QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block);
+    Rectangle(Scheme *scheme, QGraphicsScene *scene, int Ymul, std::vector<PortNode *> *nodes, QPointF Ppos, Block *block);
 
     int getX();
     int getY();
@@ -24,6 +24,8 @@ public:
 
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
     bool containsP(const QPointF &point) const;
+    Block *getLogicBlock();
+    void removeGBlock();
 protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
@@ -48,6 +50,8 @@ private:
     QPointF Ppos;
 
     rectangleInfoDialog *infoDialog;
+    Scheme *scheme;
+    Block *block;
 };
 
 #endif // RECTANGLE_H

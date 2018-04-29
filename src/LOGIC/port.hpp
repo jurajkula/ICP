@@ -27,8 +27,8 @@ struct pData {
  * @brief The portStatus enum
  */
 enum portStatus{
-    OUTPUT,
-    INPUT
+    INPUT,
+    OUTPUT
 };
 
 /**

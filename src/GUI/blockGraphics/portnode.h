@@ -31,6 +31,7 @@ public:
     void addArrow(Arrow * arrow);
     Arrow *getArrow();
     void deleteArrowPointer();
+    void deleteArrow();
 signals:
 
 public slots:

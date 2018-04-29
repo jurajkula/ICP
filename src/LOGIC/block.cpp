@@ -58,3 +58,24 @@ int Block::getPortsInputCount() {
 int Block::getPortsOutputCount() {
     return this->portsOutputCount;
 }
+
+void Block::setRules(std::vector<rule> rules)
+{
+    this->rules = rules;
+}
+
+void Block::setPorts(std::vector<port *> *ports)
+{
+    this->ports = ports;
+
+    this->portsInputCount = this->portsOutputCount = 0;
+
+    for (port *p : *ports) {
+        if(p->getStatus() == INPUT) {
+            this->portsInputCount++;
+        }
+        else {
+            this->portsOutputCount++;
+        }
+    }
+}
