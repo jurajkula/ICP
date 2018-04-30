@@ -1,7 +1,16 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis: Zakladne okno programu kde su
+ * pouzite aj buttony ako New,Save,Load,Quit
+ * Taktiez je tu graficka scena kde sa vytvaraju bloky
+ *                                   */
+
+
+
 #include "graphicsview.h"
 #include "load.h"
 #include "mainwindow.h"
 #include "save.h"
+
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
     QMainWindow(parent),
@@ -78,6 +87,7 @@ void MainWindow::on_actionLoad_2_triggered()
         this->close();
 }
 
+
 void MainWindow::on_actionSave_2_triggered()
 {
     QString filter = "ICP file (*.icp);;All Files(*)";
@@ -94,3 +104,4 @@ void MainWindow::on_actionSave_2_triggered()
     QFile file(filename);
     Save s(this->scheme, this->scene, &file);
 }
+

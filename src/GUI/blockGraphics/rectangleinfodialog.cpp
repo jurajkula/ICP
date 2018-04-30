@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "rectangleinfodialog.h"
 
 rectangleInfoDialog::rectangleInfoDialog(Block *b, QWidget *parent) :

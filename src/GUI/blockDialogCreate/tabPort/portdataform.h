@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef PORTDATAFORM_H
 #define PORTDATAFORM_H
 

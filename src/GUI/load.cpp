@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "load.h"
 
 Load::Load(QFile *file)

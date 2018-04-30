@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef PORTTOOLBOX_H
 #define PORTTOOLBOX_H
 

@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef CREATEBLOCK_H
 #define CREATEBLOCK_H
 

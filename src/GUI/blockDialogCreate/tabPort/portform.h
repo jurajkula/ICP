@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef PORTFORM_H
 #define PORTFORM_H
 

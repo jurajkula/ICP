@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "portdataform.h"
 
 portDataForm::portDataForm(QVBoxLayout *layout, std::vector<portDataForm *> *portDataForms, QWidget *parent) :

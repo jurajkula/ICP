@@ -1,3 +1,8 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
+
 //
 // Created by jurajkula on 24.3.2018.
 //

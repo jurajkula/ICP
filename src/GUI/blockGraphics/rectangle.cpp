@@ -1,3 +1,8 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
+
 #include "rectangle.h"
 
 #include <src/GUI/blockDialogCreate/createblock.h>

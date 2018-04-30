@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "portpage.h"
 
 portPage::portPage(std::vector<portPage *> *portPages, portToolBox *b, QWidget *parent) :

@@ -1,5 +1,10 @@
-#include "dialog.h"
+/* Autory : Juraj Kula , Michal Vako
+ * Popis: Pri vytvarani noveho okna sa zjavi tento dialog
+ * kde si urcime naozv nasho noveho okna
+ *                                   */
 
+
+#include "dialog.h"
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)

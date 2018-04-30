@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "gBlock.h"
 
 gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)

@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "rectangleinfodialogdata.h"
 #include "ui_rectangleinfodialogdata.h"
 

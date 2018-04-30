@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef RECTANGLEINFODIALOGDATA_H
 #define RECTANGLEINFODIALOGDATA_H
 

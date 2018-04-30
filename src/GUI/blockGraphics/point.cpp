@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "point.h"
 
 point::point(PortNode *node, QGraphicsScene *scene)

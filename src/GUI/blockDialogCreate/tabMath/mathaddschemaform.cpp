@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "mathaddschemaform.h"
 
 mathAddSchemaForm::mathAddSchemaForm(QVBoxLayout *l, std::vector<mathSchemaForm *> *mathForms, QWidget *parent) :

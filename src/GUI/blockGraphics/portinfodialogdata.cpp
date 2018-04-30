@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "portinfodialogdata.h"
 
 portInfoDialogData::portInfoDialogData(pData *d, QWidget *parent) :

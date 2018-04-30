@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef MATHADDSCHEMAFORM_H
 #define MATHADDSCHEMAFORM_H
 

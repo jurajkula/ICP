@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "GraphicsScene.h"
 
 GraphicsScene::GraphicsScene(Scheme *s, QObject *parent) :

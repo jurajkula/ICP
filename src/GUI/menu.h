@@ -1,3 +1,8 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
+
 #ifndef FORM_H
 #define FORM_H
 

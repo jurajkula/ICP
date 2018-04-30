@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "createblock.h"
 
 createBlock::createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, QWidget *parent) :

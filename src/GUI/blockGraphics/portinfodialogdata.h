@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef PORTINFODIALOGDATA_H
 #define PORTINFODIALOGDATA_H
 

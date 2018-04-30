@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "portaddform.h"
 
 portAddForm::portAddForm(QVBoxLayout *l, std::vector<portPage *> *portPages, std::vector<portForm *> *portForms, portToolBox *box, QWidget *parent) :

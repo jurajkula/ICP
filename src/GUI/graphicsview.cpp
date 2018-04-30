@@ -1,3 +1,8 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
+
 #include "graphicsview.h"
 
 #include <QMouseEvent>

@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #include "arrow.h"
 
 Arrow::Arrow(PortNode *source, PortNode *dest)

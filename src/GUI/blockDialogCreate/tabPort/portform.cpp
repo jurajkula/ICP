@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "portform.h"
 
 portForm::portForm(QToolBox *l,  QWidget *parent) :

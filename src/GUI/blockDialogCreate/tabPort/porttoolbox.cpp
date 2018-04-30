@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vako
+ * Popis:
+ *                                   */
+
 #include "porttoolbox.h"
 
 portToolBox::portToolBox(QWidget *parent) :

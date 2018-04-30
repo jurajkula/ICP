@@ -1,3 +1,8 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis: Sluzi na ukladanie akltualnej rozohranej hry/programu v xml formate
+ *                                   */
+
+
 #include "save.h"
 
 #include <src/GUI/blockGraphics/rectangle.h>

@@ -1,3 +1,7 @@
+/* Autory : Juraj Kula , Michal Vasko
+ * Popis:
+ *                                   */
+
 #ifndef GRAPHICSVIEW_H
 #define GRAPHICSVIEW_H
 
