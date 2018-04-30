@@ -41,7 +41,7 @@ QPainterPath Rectangle::shape() const
     return path;
 }
 
-void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
+void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     QPen blackpen(Qt::black);
     blackpen.setWidth(1);
@@ -74,13 +74,13 @@ int Rectangle::type() const {
     return Type;
 }
 
-void Rectangle::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+void Rectangle::hoverEnterEvent(QGraphicsSceneHoverEvent *) {
     qDebug("Enter rectangle");
     this->infoDialog->show();
     update();
 }
 
-void Rectangle::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+void Rectangle::hoverLeaveEvent(QGraphicsSceneHoverEvent *) {
     qDebug("Leave rectangle");
     this->infoDialog->hide();
     update();

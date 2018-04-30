@@ -11,9 +11,10 @@ pData CreateData(std::string name, double value) {
     return d;
 }
 
-port::port(int status) {
+port::port(int status, int uniqueID) {
     this->connect.connected = false;
     this->status = status;
+    this->uniqueID = uniqueID;
 }
 
 bool port::findData(std::string s) {
@@ -93,4 +94,14 @@ int port::getID() {
 
 void port::setID(int i) {
     this->ID = i;
+}
+
+int port::getUniqueID()
+{
+    return this->uniqueID;
+}
+
+void port::setUniqueID(int uniqueID)
+{
+    this->uniqueID = uniqueID;
 }

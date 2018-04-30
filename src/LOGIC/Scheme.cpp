@@ -22,7 +22,7 @@ void Scheme::blockDelete(Block *b) {
 }
 
 //TODO  find blocks
-bool Scheme::blockFind(Block *b) {
+bool Scheme::blockFind(Block *) {
     return false;
 }
 
@@ -90,6 +90,33 @@ bool Scheme::createConnection(port *pOUT, port *pIN) {
 bool Scheme::compute() {
     //([a-zA-Z][a-zA-z0-9]*|[1-9][0-9]*)
     return false;
+}
+
+int Scheme::generatePortID() {
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<> dist(1, 10000);
+
+    int id = 0;
+    bool found = false;
+    while(true) {
+        id = dist(mt);
+        for (Block *b: this->blocks) {
+            for (port *p : *(b->getPorts())){
+                if(p->getUniqueID() == id) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if(found) {
+            found = !found;
+        }
+        else {
+            break;
+        }
+    }
+    return id;
 }
 
 int Scheme::generateID() {

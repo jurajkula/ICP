@@ -59,7 +59,9 @@ SOURCES += \
     src/GUI/blockGraphics/rectangleinfodialog.cpp \
     src/GUI/blockGraphics/portinfodialog.cpp \
     src/GUI/blockGraphics/portinfodialogdata.cpp \
-    src/GUI/graphicsview.cpp
+    src/GUI/graphicsview.cpp \
+    src/GUI/save.cpp \
+    src/GUI/load.cpp
 
 
 HEADERS += \
@@ -89,7 +91,9 @@ HEADERS += \
     src/GUI/blockGraphics/rectangleinfodialog.h \
     src/GUI/blockGraphics/portinfodialog.h \
     src/GUI/blockGraphics/portinfodialogdata.h \
-    src/GUI/graphicsview.h
+    src/GUI/graphicsview.h \
+    src/GUI/save.h \
+    src/GUI/load.h
 
 FORMS += \
     src/GUI/mainwindow.ui \

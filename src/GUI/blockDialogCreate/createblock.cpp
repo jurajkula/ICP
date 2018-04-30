@@ -107,9 +107,9 @@ void createBlock::on_buttonBox_accepted()
         QComboBox *cBox = page->getPortForm()->GetUI()->io;
         port *p;
         if (cBox->currentText() == "Input")
-            p = new port(INPUT);
+            p = new port(INPUT, scheme->generatePortID());
         else
-            p = new port (OUTPUT);
+            p = new port (OUTPUT, scheme->generatePortID());
 
         for (portDataForm *data : page->getPortDataForms()) {
             if (data->GetUI()->name->text().isEmpty()) {

@@ -31,7 +31,7 @@ QPainterPath point::shape() const
     return path;
 }
 
-void point::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *)
+void point::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     painter->setPen(Qt::NoPen);
     painter->setBrush(Qt::darkGray);
@@ -133,13 +133,13 @@ int point::type() const {
     return Type;
 }
 
-void point::hoverEnterEvent(QGraphicsSceneHoverEvent *event) {
+void point::hoverEnterEvent(QGraphicsSceneHoverEvent *) {
     qDebug("Enter port");
     this->infoDialog->show();
     update();
 }
 
-void point::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
+void point::hoverLeaveEvent(QGraphicsSceneHoverEvent *) {
     qDebug("Leave port");
     this->infoDialog->hide();
     update();

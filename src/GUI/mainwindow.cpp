@@ -1,5 +1,7 @@
 #include "graphicsview.h"
+#include "load.h"
 #include "mainwindow.h"
+#include "save.h"
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
     QMainWindow(parent),
@@ -60,18 +62,35 @@ void MainWindow::on_actionLoad_2_triggered()
         QString filename=QFileDialog::getOpenFileName(
                     this,
                     tr("Open File"),
-                    "C://",
-                    "All files(*.*)"
+                    "../example",
+                    "ICP file (*.icp);;All Files(*)"
                     );
 
-        QMessageBox::information(this,tr("File Name"),filename);
+        //QMessageBox::information(this,tr("File Name"),filename);
 
+        if (filename.isEmpty())
+            return;
 
+        QFile file(filename);
+        Load l(&file);
 
-
+        //TODO delete all
+        this->close();
 }
 
 void MainWindow::on_actionSave_2_triggered()
 {
+    QString filter = "ICP file (*.icp);;All Files(*)";
+    QString filename=QFileDialog::getSaveFileName(
+                this,
+                tr("Save File"),
+                "../example",
+                filter
+                );
 
+    if (filename.isEmpty())
+        return;
+
+    QFile file(filename);
+    Save s(this->scheme, this->scene, &file);
 }

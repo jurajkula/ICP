@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCHEME>
+    <Name>as</Name>
+    <BLOCK>
+        <ID>5548</ID>
+        <POSITION>
+            <X>-51</X>
+            <Y>-158</Y>
+        </POSITION>
+        <SCHEMAS>
+            <OUTPUT>b</OUTPUT>
+            <RULE>a - 5</RULE>
+        </SCHEMAS>
+        <PORTS>
+            <PORT>
+                <ID>5480</ID>
+                <TYPE>0</TYPE>
+                <CONNECTION>
+                    <IS_CONNECTED>FALSE</IS_CONNECTED>
+                </CONNECTION>
+                <DATA>
+                    <D>
+                        <NAME>a</NAME>
+                        <VALUE>0</VALUE>
+                    </D>
+                </DATA>
+            </PORT>
+            <PORT>
+                <ID>1031</ID>
+                <TYPE>1</TYPE>
+                <CONNECTION>
+                    <IS_CONNECTED>FALSE</IS_CONNECTED>
+                </CONNECTION>
+                <DATA>
+                    <D>
+                        <NAME>b</NAME>
+                        <VALUE>10</VALUE>
+                    </D>
+                </DATA>
+            </PORT>
+        </PORTS>
+    </BLOCK>
+</SCHEME>

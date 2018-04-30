@@ -78,6 +78,7 @@ public:
     int generateID();
 
 
+    int generatePortID();
 private:
     /**
      * @brief name Name of the scheme

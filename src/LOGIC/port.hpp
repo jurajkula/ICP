@@ -49,7 +49,7 @@ public:
      * @brief port Constructor of class port
      * @param status Status of the port
      */
-    explicit port(int status);
+    explicit port(int status, int uniqueID);
 
 
     /**
@@ -160,7 +160,9 @@ public:
      */
     void setID(int ID);
 
+    int getUniqueID();
 
+    void setUniqueID(int uniqueID);
 
 private:
     /**
@@ -187,6 +189,8 @@ private:
      * @brief ID Port ID, default is set to 0
      */
     int ID = 0;
+
+    int uniqueID = 0;
 };
 
 

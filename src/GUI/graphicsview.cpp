@@ -23,7 +23,7 @@ void GraphicsView::wheelEvent ( QWheelEvent * event )
  anim->start();
 }
 
-void GraphicsView::scalingTime(qreal x)
+void GraphicsView::scalingTime(qreal)
 {
  qreal factor = 1.0+ qreal(numScheduledScalings) / 300.0;
  scale(factor, factor);
