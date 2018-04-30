@@ -147,3 +147,15 @@ int Scheme::generateID() {
     }
     return id;
 }
+
+port *Scheme::getPortByUniqueID(int ID) {
+    for (Block *b : blocks) {
+        for (port *p : *(b->getPorts())) {
+            if (p->getUniqueID() == ID) {
+                return p;
+            }
+        }
+    }
+
+    return nullptr;
+}

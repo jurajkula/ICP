@@ -15,6 +15,10 @@
 #include "ui_mainwindow.h"
 #include "GraphicsScene.h"
 #include "../LOGIC/Scheme.hpp"
+#include "graphicsview.h"
+#include "load.h"
+
+class Load;
 
 namespace Ui {
 class MainWindow;
@@ -42,7 +46,10 @@ public:
      * @return
      */
     Ui::MainWindow *getUI();
+    QGraphicsScene *getScene();
+    Scheme *getScheme();
 
+    PortNode *getPortNodeByPortUniqueID(int id);
 private slots:
 
     /**

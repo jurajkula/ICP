@@ -7,6 +7,9 @@
 Arrow::Arrow(PortNode *source, PortNode *dest)
     : arrowSize(10)
 {
+    if (!source || !dest)
+        return;
+
     setAcceptedMouseButtons(0);
     this->source = source;
     this->dest = dest;
@@ -19,6 +22,9 @@ Arrow::Arrow(PortNode *source, PortNode *dest)
 Arrow::Arrow(PortNode *sourceNode, point *destPoint)
     : arrowSize(10)
 {
+    if (!sourceNode || !destPoint)
+        return;
+
     setAcceptedMouseButtons(0);
     this->source = sourceNode;
     this->destP = destPoint;

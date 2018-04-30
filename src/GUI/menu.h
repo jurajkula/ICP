@@ -49,6 +49,8 @@ private slots:
      */
     void dialogRejected_showMenu();
 
+    void on_pushButton_2_clicked();
+
 private:
     /**
      * @brief ui GUI window

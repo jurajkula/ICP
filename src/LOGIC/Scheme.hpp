@@ -84,6 +84,7 @@ public:
 
 
     int generatePortID();
+    port *getPortByUniqueID(int ID);
 private:
     /**
      * @brief name Name of the scheme

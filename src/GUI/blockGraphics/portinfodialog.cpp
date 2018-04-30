@@ -58,7 +58,8 @@ void portInfoDialog::clearLayout(bool deleteWidgets)
             if (QWidget* widget = item->widget())
                 widget->deleteLater();
         }
-        if (QLayout* childLayout = item->layout())
+        QLayout* childLayout = item->layout();
+        if (childLayout)
             clearLayout(deleteWidgets);
         delete item;
     }

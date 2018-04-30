@@ -4,12 +4,7 @@
  * Taktiez je tu graficka scena kde sa vytvaraju bloky
  *                                   */
 
-
-
-#include "graphicsview.h"
-#include "load.h"
 #include "mainwindow.h"
-#include "save.h"
 
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
@@ -43,6 +38,16 @@ MainWindow::~MainWindow()
 
 Ui::MainWindow *MainWindow::getUI() {
     return this->ui;
+}
+
+QGraphicsScene *MainWindow::getScene()
+{
+    return this->scene;
+}
+
+Scheme *MainWindow::getScheme()
+{
+    return this->scheme;
 }
 
 //vypnutie hry
@@ -90,7 +95,7 @@ void MainWindow::on_actionLoad_2_triggered()
 
 void MainWindow::on_actionSave_2_triggered()
 {
-    QString filter = "ICP file (*.icp);;All Files(*)";
+    QString filter = "ICP file (*.icp)";
     QString filename=QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
@@ -101,7 +106,21 @@ void MainWindow::on_actionSave_2_triggered()
     if (filename.isEmpty())
         return;
 
+    if(!filename.endsWith(".icp"))
+        filename += ".icp";
+
     QFile file(filename);
     Save s(this->scheme, this->scene, &file);
 }
 
+PortNode *MainWindow::getPortNodeByPortUniqueID(int id) {
+    for (QGraphicsItem *item : this->scene->items()) {
+        PortNode *p = qgraphicsitem_cast<PortNode *>(item);
+        if(!p)
+            continue;
+
+        if (p->getLogicPort()->getUniqueID() == id)
+            return p;
+    }
+    return nullptr;
+}

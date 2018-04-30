@@ -81,7 +81,6 @@ public:
 
     void setRules(std::vector<rule> rules);
     void setPorts(std::vector<port *> *ports);
-
 private:
     /**
      * @brief ports Vector of ports

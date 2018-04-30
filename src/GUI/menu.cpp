@@ -49,3 +49,24 @@ void Form::dialogRejected_showMenu() {
     dialog->hide();
     dialog->close();
 }
+
+void Form::on_pushButton_2_clicked()
+{
+    QString filename=QFileDialog::getOpenFileName(
+                this,
+                tr("Open File"),
+                "../example",
+                "ICP file (*.icp);;All Files(*)"
+                );
+
+    //QMessageBox::information(this,tr("File Name"),filename);
+
+    if (filename.isEmpty())
+        return;
+
+    QFile file(filename);
+    Load l(&file);
+
+    //TODO delete all
+    this->close();
+}

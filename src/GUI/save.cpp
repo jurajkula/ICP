@@ -31,10 +31,12 @@ Save::Save(Scheme *scheme, QGraphicsScene *scene, QFile *file)
         xml.writeTextElement("Y", QString::number(r->pos().y()));
         xml.writeEndElement();
 
-        xml.writeStartElement("SCHEMAS");
+        xml.writeStartElement("SCHEMES");
         for (rule Rule : r->getLogicBlock()->getRules()) {
+            xml.writeStartElement("S");
             xml.writeTextElement("OUTPUT", QString::fromStdString(Rule.output));
             xml.writeTextElement("RULE", QString::fromStdString(Rule.infoSchema));
+            xml.writeEndElement();
         }
         xml.writeEndElement();
 

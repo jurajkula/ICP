@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SCHEME>
-    <Name>as</Name>
+    <Name>asd</Name>
     <BLOCK>
-        <ID>8044</ID>
+        <ID>9454</ID>
         <POSITION>
-            <X>-318</X>
-            <Y>-93</Y>
+            <X>-38</X>
+            <Y>-226</Y>
         </POSITION>
-        <SCHEMAS>
-            <OUTPUT>c</OUTPUT>
-            <RULE>b + d</RULE>
-            <OUTPUT>c</OUTPUT>
-            <RULE>b - d</RULE>
-        </SCHEMAS>
+        <SCHEMES>
+            <S>
+                <OUTPUT>b</OUTPUT>
+                <RULE>a</RULE>
+            </S>
+        </SCHEMES>
         <PORTS>
             <PORT>
-                <ID>5527</ID>
+                <ID>2154</ID>
                 <TYPE>0</TYPE>
+                <CONNECTION>
+                    <IS_CONNECTED>TRUE</IS_CONNECTED>
+                    <CPORT>674</CPORT>
+                </CONNECTION>
+                <DATA>
+                    <D>
+                        <NAME>a</NAME>
+                        <VALUE>0</VALUE>
+                    </D>
+                </DATA>
+            </PORT>
+            <PORT>
+                <ID>254</ID>
+                <TYPE>1</TYPE>
                 <CONNECTION>
                     <IS_CONNECTED>FALSE</IS_CONNECTED>
                 </CONNECTION>
@@ -27,47 +41,23 @@
                     </D>
                 </DATA>
             </PORT>
-            <PORT>
-                <ID>4306</ID>
-                <TYPE>1</TYPE>
-                <CONNECTION>
-                    <IS_CONNECTED>FALSE</IS_CONNECTED>
-                </CONNECTION>
-                <DATA>
-                    <D>
-                        <NAME>c</NAME>
-                        <VALUE>0</VALUE>
-                    </D>
-                </DATA>
-            </PORT>
-            <PORT>
-                <ID>5960</ID>
-                <TYPE>0</TYPE>
-                <CONNECTION>
-                    <IS_CONNECTED>FALSE</IS_CONNECTED>
-                </CONNECTION>
-                <DATA>
-                    <D>
-                        <NAME>d</NAME>
-                        <VALUE>50</VALUE>
-                    </D>
-                </DATA>
-            </PORT>
         </PORTS>
     </BLOCK>
     <BLOCK>
-        <ID>5548</ID>
+        <ID>816</ID>
         <POSITION>
-            <X>-51</X>
-            <Y>-158</Y>
+            <X>-608</X>
+            <Y>-357</Y>
         </POSITION>
-        <SCHEMAS>
-            <OUTPUT>b</OUTPUT>
-            <RULE>a - 5</RULE>
-        </SCHEMAS>
+        <SCHEMES>
+            <S>
+                <OUTPUT>b</OUTPUT>
+                <RULE>a + 9</RULE>
+            </S>
+        </SCHEMES>
         <PORTS>
             <PORT>
-                <ID>5480</ID>
+                <ID>6108</ID>
                 <TYPE>0</TYPE>
                 <CONNECTION>
                     <IS_CONNECTED>FALSE</IS_CONNECTED>
@@ -80,10 +70,11 @@
                 </DATA>
             </PORT>
             <PORT>
-                <ID>1031</ID>
+                <ID>674</ID>
                 <TYPE>1</TYPE>
                 <CONNECTION>
-                    <IS_CONNECTED>FALSE</IS_CONNECTED>
+                    <IS_CONNECTED>TRUE</IS_CONNECTED>
+                    <CPORT>2154</CPORT>
                 </CONNECTION>
                 <DATA>
                     <D>
