@@ -50,6 +50,8 @@ public:
     Scheme *getScheme();
 
     PortNode *getPortNodeByPortUniqueID(int id);
+
+
 private slots:
 
     /**

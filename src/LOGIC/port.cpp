@@ -39,6 +39,13 @@ pData port::returnData(std::string s) {
     return r;
 }
 
+void port::setDataValue(std::string s, double value) {
+    for (pData d : type) {
+        if (d.name == s)
+            d.value = value;
+    }
+}
+
 bool port::addData(pData d) {
     if (!findData(d.name)) {
         type.push_back(d);

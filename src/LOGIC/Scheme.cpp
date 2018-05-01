@@ -93,7 +93,11 @@ bool Scheme::createConnection(port *pOUT, port *pIN) {
 
 bool Scheme::compute() {
     //([a-zA-Z][a-zA-z0-9]*|[1-9][0-9]*)
-    return false;
+    for (Block *b : blocks) {
+        b->execute();
+    }
+
+    return true;
 }
 
 int Scheme::generatePortID() {

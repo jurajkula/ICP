@@ -25,9 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 DESTDIR = ../ICP/bin
 QMAKE_CXXFLAGS +=-Wno-expansion-to-defined
 
-CONFIG += c++11
+#CONFIG += c++11
 CONFIG += c++14
-CONFIG += c++17
+#CONFIG += c++17
 
 QMAKE_CXXFLAGS_RELEASE += -O3
 
@@ -61,7 +61,8 @@ SOURCES += \
     src/GUI/blockGraphics/portinfodialogdata.cpp \
     src/GUI/graphicsview.cpp \
     src/GUI/save.cpp \
-    src/GUI/load.cpp
+    src/GUI/load.cpp \
+    src/GUI/mainwindowtools.cpp
 
 
 HEADERS += \
@@ -93,7 +94,8 @@ HEADERS += \
     src/GUI/blockGraphics/portinfodialogdata.h \
     src/GUI/graphicsview.h \
     src/GUI/save.h \
-    src/GUI/load.h
+    src/GUI/load.h \
+    src/GUI/mainwindowtools.h
 
 FORMS += \
     src/GUI/mainwindow.ui \
@@ -111,7 +113,8 @@ FORMS += \
     src/GUI/blockGraphics/rectangleinfodialogdata.ui \
     src/GUI/blockGraphics/rectangleinfodialog.ui \
     src/GUI/blockGraphics/portinfodialog.ui \
-    src/GUI/blockGraphics/portinfodialogdata.ui
+    src/GUI/blockGraphics/portinfodialogdata.ui \
+    src/GUI/mainwindowtools.ui
 
 
 RESOURCES += \

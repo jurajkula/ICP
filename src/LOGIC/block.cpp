@@ -36,10 +36,16 @@ std::vector<rule> Block::getRules() {
 
 // TODO compute data
 bool Block::execute() {
+    for (rule r : this->rules) {
+        double value = runComputing(&r, r.tokens, *ports);
+        for (port *p : *ports) {
+            if (p->findData(r.output)) {
+                p->setDataValue(r.output, value);
+            }
+        }
+    }
 
-
-
-    return false;
+    return true;
 }
 
 int Block::getID() {

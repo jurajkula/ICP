@@ -5,6 +5,7 @@
  *                                   */
 
 #include "mainwindow.h"
+#include "mainwindowtools.h"
 
 
 MainWindow::MainWindow(std::string name, QWidget *parent) :
@@ -15,12 +16,13 @@ MainWindow::MainWindow(std::string name, QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle(scheme->getName().data());
+    QVBoxLayout *layout = new QVBoxLayout();
+    QWidget *wrapper = new QWidget();
 
     // tvorba scena //
     scene = new GraphicsScene(this->scheme, this);
 
     //novy graphics view
-    //QGraphicsView *view = new QGraphicsView(this);
     GraphicsView *view = new GraphicsView();
     view->setSceneRect(-300,-300, 300, 300);
     this->resize(600, 600);
@@ -28,7 +30,13 @@ MainWindow::MainWindow(std::string name, QWidget *parent) :
     //zobrazenie sceny
     view->setScene(scene);
 
-    this->setCentralWidget(view);
+    mainWindowTools *tools = new mainWindowTools(scheme, scene);
+
+    layout->setMenuBar(tools);
+    layout->addWidget(view);
+
+    wrapper->setLayout(layout);
+    this->setCentralWidget(wrapper);
 }
 
 MainWindow::~MainWindow()

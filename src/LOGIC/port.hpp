@@ -168,6 +168,7 @@ public:
 
     void setUniqueID(int uniqueID);
 
+    void setDataValue(std::string s, double value);
 private:
     /**
      * @brief type vector of all data
