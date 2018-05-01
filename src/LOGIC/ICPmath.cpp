@@ -22,7 +22,7 @@ int exprTav [5][5] {
 
 bool checkMathSyntax(std::string s) {
     std::regex e (R"((?:[\s]*(?:[a-zA-Z][a-zA-z0-9]*|[0]|[1-9][0-9]*|[0]\.[0-9]+|[1-9][0-9]*\.[0-9]+)[\s]*(?:\n|\+|\-|\*|\/)[\s]*)+)"); //regex kontrolujuci spravnost vzorca (syntax)
-    std::regex op (R"(.*[\+\-\*\/][\s]*)"); // REGEX, ak je operand poslednym znakom
+    std::regex op (R"(.*[\-\+\*\/][\s]*)"); // REGEX, ak je operand poslednym znakom
     if (std::regex_match(s, op)) {
         return false;
     }
