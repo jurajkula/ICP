@@ -122,3 +122,13 @@ void Block::defaultExecution() {
         p->changeUsed(false);
     }
 }
+
+void Block::deleteAll() {
+    for (port *p : *ports) {
+        p->deleteAll();
+        delete(p);
+        p = nullptr;
+    }
+    ports->clear();
+    rules.clear();
+}

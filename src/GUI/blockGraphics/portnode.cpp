@@ -120,3 +120,16 @@ void PortNode::deleteArrowPointer()
 void PortNode::deleteArrow() {
     this->p->removeArrow();
 }
+
+void PortNode::deleteInfoDialog() {
+    this->p->removeInfoDialog();
+}
+
+void PortNode::deleteAll() {
+    deleteArrow();
+    deleteInfoDialog();
+    this->scene->removeItem(p);
+    delete(p);
+    p = nullptr;
+    this->scene->removeItem(this);
+}

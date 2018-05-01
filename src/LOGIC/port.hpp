@@ -171,6 +171,7 @@ public:
     void setDataValue(std::string s, double value);
     pData *returnData(unsigned int pos);
     unsigned int returnPosData(std::string s);
+    void deleteAll();
 private:
     /**
      * @brief type vector of all data

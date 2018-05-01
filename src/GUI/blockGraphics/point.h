@@ -32,6 +32,7 @@ public:
     enum { Type = UserType + 1 };
     int type() const override;
     void removeArrow();
+    void removeInfoDialog();
 protected:
     QVariant itemChange(GraphicsItemChange change, const QVariant &value) override;
 

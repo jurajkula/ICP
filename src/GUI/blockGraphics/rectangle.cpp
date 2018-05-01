@@ -103,6 +103,13 @@ void Rectangle::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
         createBlock *bD = new createBlock(this->scheme, this->scene, this->pos(), this->block);
         bD->show();
     }
+    else if(event->button() == Qt::RightButton) {
+        qDebug("Delete");
+        this->deleteAll();
+    }
+
+    update();
+    QGraphicsItem::mouseDoubleClickEvent(event);
 }
 
 bool Rectangle::containsP(const QPointF &point) const {
@@ -123,8 +130,26 @@ Block *Rectangle::getLogicBlock()
 
 void Rectangle::removeGBlock() {
     for (PortNode *node : *(this->nodes)) {
-        node->deleteArrow();
-        this->scene->removeItem(node);
+        node->deleteAll();
     }
+    this->infoDialog->hide();
+    this->infoDialog->close();
+    this->infoDialog->deleteLater();
+
+    this->scene->removeItem(this);
+}
+
+void Rectangle::deleteAll() {
+    for (PortNode *node : *(this->nodes)) {
+        node->deleteAll();
+        delete(node);
+        node = nullptr;
+    }
+    this->infoDialog->hide();
+    this->infoDialog->close();
+    this->infoDialog->deleteLater();
+
+    this->scheme->blockDelete(this->block);
+    this->block = nullptr;
     this->scene->removeItem(this);
 }

@@ -32,6 +32,8 @@ public:
     Arrow *getArrow();
     void deleteArrowPointer();
     void deleteArrow();
+    void deleteInfoDialog();
+    void deleteAll();
 signals:
 
 public slots:

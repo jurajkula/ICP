@@ -129,3 +129,11 @@ void port::setUniqueID(int uniqueID)
 {
     this->uniqueID = uniqueID;
 }
+
+void port::deleteAll() {
+    for (pData *d : type) {
+        delete (d);
+        d = nullptr;
+    }
+    type.clear();
+}

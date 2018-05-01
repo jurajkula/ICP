@@ -62,8 +62,7 @@ QPushButton *mainWindowTools::getStop()
     return this->stop;
 }
 
-void mainWindowTools::RUN_clicked() {
-    qDebug("RUN");
+void mainWindowTools::restoreDefault() {
     for (QGraphicsItem *item : scene->items()) {
         Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
         if(!r)
@@ -72,8 +71,12 @@ void mainWindowTools::RUN_clicked() {
         r->getLogicBlock()->defaultExecution();
         r->update();
     }
+}
 
-    bool computation = false;
+void mainWindowTools::RUN_clicked() {
+    qDebug("RUN");
+    restoreDefault();
+
     while(true) {
         computation = false;
         scheme->compute();
@@ -92,35 +95,46 @@ void mainWindowTools::RUN_clicked() {
         if (!computation)
             break;
     }
+    computation = false;
 }
 
 void mainWindowTools::DEBUG_clicked() {
     qDebug("DEBUG");
+
+    if (debugging)
+        return;
+
+    debugging = true;
+    computation = false;
+
+    restoreDefault();
+    scheme->compute();
 
     for (QGraphicsItem *item : scene->items()) {
         Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
         if(!r)
             continue;
 
-        r->getLogicBlock()->defaultExecution();
         r->update();
     }
+}
 
-    scheme->compute();
+void mainWindowTools::NEXT_clicked() {
+    qDebug("NEXT");
+    if (!debugging)
+        return;
 
+    computation = false;
     for (QGraphicsItem *item : scene->items()) {
         Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
         if(!r)
             continue;
 
         if (!r->getLogicBlock()->getExecution()) {
-            r->update();
+            computation = true;
         }
     }
-}
 
-void mainWindowTools::NEXT_clicked() {
-    qDebug("NEXT");
 
     scheme->compute();
 
@@ -128,20 +142,20 @@ void mainWindowTools::NEXT_clicked() {
         Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
         if(!r)
             continue;
-
         r->update();
+    }
+
+    if(!computation) {
+        STOP_clicked();
+        return;
     }
 }
 
 void mainWindowTools::STOP_clicked() {
     qDebug("STOP");
-
-    for (QGraphicsItem *item : scene->items()) {
-        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
-        if(!r)
-            continue;
-
-        r->getLogicBlock()->defaultExecution();
-        r->update();
-    }
+    if (!debugging)
+        return;
+    debugging = false;
+    computation = false;
+    restoreDefault();
 }

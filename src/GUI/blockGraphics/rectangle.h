@@ -30,6 +30,7 @@ public:
     bool containsP(const QPointF &point) const;
     Block *getLogicBlock();
     void removeGBlock();
+    void deleteAll();
 protected:
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override;
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;

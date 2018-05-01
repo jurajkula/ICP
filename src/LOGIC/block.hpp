@@ -84,6 +84,7 @@ public:
     bool getExecution();
     void setExecuted(bool b);
     void defaultExecution();
+    void deleteAll();
 private:
     /**
      * @brief ports Vector of ports

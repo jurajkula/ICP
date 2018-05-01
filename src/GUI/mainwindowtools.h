@@ -42,6 +42,9 @@ private:
     QPushButton *stop;
     Scheme *scheme;
     QGraphicsScene *scene;
+    void restoreDefault();
+    bool computation = false;
+    bool debugging = false;
 };
 
 #endif // MAINWINDOWTOOLS_H

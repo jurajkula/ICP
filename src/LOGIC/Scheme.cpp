@@ -20,7 +20,11 @@ void Scheme::blockAdd(Block *b) {
 void Scheme::blockDelete(Block *b) {
     for (unsigned long i = 0; i < this->blocks.size(); i++) {
         if (this->blocks.at(i) == b) {
+            Block *bb = this->blocks.at(i);
+            this->blocks.at(i)->deleteAll();
             this->blocks.erase(this->blocks.begin() + i);
+            delete(bb);
+            bb = nullptr;
         }
     }
 }

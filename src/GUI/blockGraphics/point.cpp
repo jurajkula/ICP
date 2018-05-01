@@ -103,6 +103,12 @@ void point::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     this->setPos(this->node->pos());
 }
 
+void point::removeInfoDialog() {
+    this->infoDialog->hide();
+    this->infoDialog->close();
+    this->infoDialog->deleteLater();
+}
+
 void point::removeArrow() {
     if (!this->node->getLogicPort()->isConnected())
         return;
