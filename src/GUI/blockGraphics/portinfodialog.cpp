@@ -35,17 +35,16 @@ void portInfoDialog::setPos(QPointF pos) {
 void portInfoDialog::prepareData() {
     this->clearLayout(true);
 
-    port *pointer;
-
-    if ((p->isConnected()) && (p->getStatus() == INPUT)) {
-        pointer = p->getConnection().p;
+    if ((p->isConnected()) && (p->getStatus() == INPUT)) {        
+        for (pData *d : p->getData()) {
+            d->value = p->getConnection().p->returnData(p->returnPosData(d->name))->value;
+            layout->addWidget(new portInfoDialogData(d));
+        }
     }
     else {
-        pointer = p;
-    }
-
-    for (pData *d : pointer->getData()) {
-        layout->addWidget(new portInfoDialogData(d));
+        for (pData *d : p->getData()) {
+                layout->addWidget(new portInfoDialogData(d));
+            }
     }
 }
 
