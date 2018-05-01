@@ -44,8 +44,8 @@ void portInfoDialog::prepareData() {
         pointer = p;
     }
 
-    for (pData d : pointer->getData()) {
-        layout->addWidget(new portInfoDialogData(&d));
+    for (pData *d : pointer->getData()) {
+        layout->addWidget(new portInfoDialogData(d));
     }
 }
 

@@ -81,6 +81,9 @@ public:
 
     void setRules(std::vector<rule> rules);
     void setPorts(std::vector<port *> *ports);
+    bool getExecution();
+    void setExecuted(bool b);
+    void defaultExecution();
 private:
     /**
      * @brief ports Vector of ports
@@ -99,6 +102,7 @@ private:
 
     int portsInputCount = 0;
     int portsOutputCount = 0;
+    bool executed = false;
 };
 
 

@@ -36,6 +36,13 @@ std::vector<rule> Block::getRules() {
 
 // TODO compute data
 bool Block::execute() {
+    for (port *p : *ports) {
+        if ((p->getStatus() == INPUT) && (p->isConnected())) {
+            if (!p->isUsed())
+                return false;
+        }
+    }
+
     for (rule r : this->rules) {
         double value = runComputing(&r, r.tokens, *ports);
         for (port *p : *ports) {
@@ -44,6 +51,14 @@ bool Block::execute() {
             }
         }
     }
+
+    for (port *p : *ports) {
+        p->changeUsed(true);
+        if (p->isConnected()) {
+            p->getConnection().p->changeUsed(true);
+        }
+    }
+    this->executed = true;
 
     return true;
 }
@@ -88,5 +103,22 @@ void Block::setPorts(std::vector<port *> *ports)
         else {
             this->portsOutputCount++;
         }
+    }
+}
+
+bool Block::getExecution()
+{
+    return this->executed;
+}
+
+void Block::setExecuted(bool b)
+{
+    this->executed = b;
+}
+
+void Block::defaultExecution() {
+    this->executed = false;
+    for (port *p : *ports) {
+        p->changeUsed(false);
     }
 }

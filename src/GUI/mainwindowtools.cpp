@@ -1,5 +1,7 @@
 #include "mainwindowtools.h"
 
+#include <src/GUI/blockGraphics/rectangle.h>
+
 mainWindowTools::mainWindowTools(Scheme *scheme, QGraphicsScene *scene, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::mainWindowTools)
@@ -62,17 +64,84 @@ QPushButton *mainWindowTools::getStop()
 
 void mainWindowTools::RUN_clicked() {
     qDebug("RUN");
-    scheme->compute();
+    for (QGraphicsItem *item : scene->items()) {
+        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+        if(!r)
+            continue;
+
+        r->getLogicBlock()->defaultExecution();
+        r->update();
+    }
+
+    bool computation = false;
+    while(true) {
+        computation = false;
+        scheme->compute();
+
+        for (QGraphicsItem *item : scene->items()) {
+            Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+            if(!r)
+                continue;
+
+            if (!r->getLogicBlock()->getExecution()) {
+                computation = true;
+                r->update();
+            }
+        }
+
+        if (!computation)
+            break;
+    }
 }
 
 void mainWindowTools::DEBUG_clicked() {
     qDebug("DEBUG");
+
+    for (QGraphicsItem *item : scene->items()) {
+        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+        if(!r)
+            continue;
+
+        r->getLogicBlock()->defaultExecution();
+        r->update();
+    }
+
+    scheme->compute();
+
+    for (QGraphicsItem *item : scene->items()) {
+        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+        if(!r)
+            continue;
+
+        if (!r->getLogicBlock()->getExecution()) {
+            r->update();
+        }
+    }
 }
 
 void mainWindowTools::NEXT_clicked() {
     qDebug("NEXT");
+
+    scheme->compute();
+
+    for (QGraphicsItem *item : scene->items()) {
+        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+        if(!r)
+            continue;
+
+        r->update();
+    }
 }
 
 void mainWindowTools::STOP_clicked() {
     qDebug("STOP");
+
+    for (QGraphicsItem *item : scene->items()) {
+        Rectangle *r = qgraphicsitem_cast<Rectangle *>(item);
+        if(!r)
+            continue;
+
+        r->getLogicBlock()->defaultExecution();
+        r->update();
+    }
 }

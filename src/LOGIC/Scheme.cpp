@@ -94,9 +94,13 @@ bool Scheme::createConnection(port *pOUT, port *pIN) {
 bool Scheme::compute() {
     //([a-zA-Z][a-zA-z0-9]*|[1-9][0-9]*)
     for (Block *b : blocks) {
-        b->execute();
-    }
 
+        if (b->getExecution())
+            continue;
+
+        if (b->execute())
+            break;
+    }
     return true;
 }
 

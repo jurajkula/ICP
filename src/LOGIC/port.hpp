@@ -41,7 +41,7 @@ enum portStatus{
  * @param value Value of var
  * @return Return created data
  */
-pData CreateData(std::string name, double value);
+pData *CreateData(std::string name, double value);
 
 /**
  * @brief The port class
@@ -68,14 +68,14 @@ public:
      * @param s Name of var
      * @return Return data
      */
-    pData returnData(std::string s);
+    pData *returnData(std::string s);
 
     /**
      * @brief addData Support function, which add data to vector and return successful state
      * @param d Data, which will be added to vector
      * @return Return TRUE, if data was successfuly added, alese return FALSE
      */
-    bool addData(pData d);
+    bool addData(pData *d);
 
     /**
      * @brief clearData Support function, which clear all data
@@ -86,7 +86,7 @@ public:
      * @brief getData Function, which return vector of data
      * @return Return data
      */
-    std::vector<pData> getData();
+    std::vector<pData *> getData();
 
     /**
      * @brief isUsed Support function, which return state, if port is used.
@@ -97,7 +97,7 @@ public:
     /**
      * @brief changeUsed Support function, which change using state to opposite value
      */
-    void changeUsed();
+    void changeUsed(bool used);
 
     /**
      * @brief The connection struct
@@ -169,11 +169,13 @@ public:
     void setUniqueID(int uniqueID);
 
     void setDataValue(std::string s, double value);
+    pData *returnData(unsigned int pos);
+    unsigned int returnPosData(std::string s);
 private:
     /**
      * @brief type vector of all data
      */
-    std::vector<pData> type;
+    std::vector<pData *> type;
 
     /**
      * @brief used Var, i port is used, default is set to false

@@ -57,10 +57,10 @@ Save::Save(Scheme *scheme, QGraphicsScene *scene, QFile *file)
                 xml.writeEndElement();
 
                 xml.writeStartElement("DATA");
-                for (pData d : p->getData()) {
+                for (pData *d : p->getData()) {
                     xml.writeStartElement("D");
-                    xml.writeTextElement("NAME", QString::fromStdString(d.name));
-                    xml.writeTextElement("VALUE", QString::number(d.value));
+                    xml.writeTextElement("NAME", QString::fromStdString(d->name));
+                    xml.writeTextElement("VALUE", QString::number(d->value));
                     xml.writeEndElement();
                 }
                 xml.writeEndElement();

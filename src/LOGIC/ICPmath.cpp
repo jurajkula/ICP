@@ -176,7 +176,12 @@ double runComputing(rule *r, std::vector<sMath> v, std::vector<port *> ports) {
         else {
             for (port *p : ports) {
                 if ((p->findData(tokens.back().value)) && (p->getStatus() == INPUT )) {
-                    output = p->returnData(tokens.back().value).value;
+                    if (p->isConnected()) {
+                        output = p->getConnection().p->returnData(p->returnPosData(tokens.back().value))->value;
+                    }
+                    else {
+                        output = p->returnData(tokens.back().value)->value;
+                    }
                     break;
                 }
             }
@@ -189,7 +194,7 @@ double runComputing(rule *r, std::vector<sMath> v, std::vector<port *> ports) {
         for (unsigned long i = 0; i < tokens.size(); i++) {
             if(tokens.at(i).type == sMathType_OP) {
 
-                if ((tokens.size() <= i+2) || (exprTav[i][i+2] == TM)) {
+                if ((tokens.size() <= i + 2) || (exprTav[getOPid(tokens.at(i).value)][getOPid(tokens.at(i + 2).value)] == TM)) {
 
                     double a,b,c;
                     if (tokens.at(i-1).isUsed) {
@@ -197,7 +202,21 @@ double runComputing(rule *r, std::vector<sMath> v, std::vector<port *> ports) {
                         stackC++;
                     }
                     else {
-                        a = convertStringToDouble(tokens.at(i-1).value);
+                        if (tokens.at(i-1).type == sMathType_CONST) {
+                            a = convertStringToDouble(tokens.at(i-1).value);
+                        }
+                        else {
+                            for (port *p : ports) {
+                                if ((p->findData(tokens.at(i-1).value)) && (p->getStatus() == INPUT)) {
+                                    if (p->isConnected()) {
+                                        a = p->getConnection().p->returnData(p->returnPosData(tokens.at(i-1).value))->value;
+                                    }
+                                    else {
+                                        a = p->returnData(tokens.at(i-1).value)->value;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     if (tokens.at(i+1).isUsed) {
@@ -205,7 +224,21 @@ double runComputing(rule *r, std::vector<sMath> v, std::vector<port *> ports) {
                         stackC++;
                     }
                     else {
-                        b = convertStringToDouble(tokens.at(i+1).value);
+                        if (tokens.at(i+1).type == sMathType_CONST) {
+                            b = convertStringToDouble(tokens.at(i+1).value);
+                        }
+                        else {
+                            for (port *p : ports) {
+                                if ((p->findData(tokens.at(i+1).value)) && (p->getStatus() == INPUT)) {
+                                    if (p->isConnected()) {
+                                        b = p->getConnection().p->returnData(p->returnPosData(tokens.at(i+1).value))->value;
+                                    }
+                                    else {
+                                        b = p->returnData(tokens.at(i+1).value)->value;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     c = computeAopB(a,getOPid(tokens.at(i).value),b);

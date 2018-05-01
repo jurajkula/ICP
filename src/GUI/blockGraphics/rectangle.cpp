@@ -52,7 +52,13 @@ void Rectangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
     blackpen.setWidth(1);
 
     painter->setPen(blackpen);
-    painter->setBrush(Qt::red);
+
+    if (this->block->getExecution()) {
+        painter->setBrush(Qt::green);
+    }
+    else {
+        painter->setBrush(Qt::red);
+    }
 
     painter->setPen(QPen(Qt::black, 0));
     painter->drawRect(this->boundingRect());

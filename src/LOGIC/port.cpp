@@ -9,10 +9,10 @@
 
 #include "port.hpp"
 
-pData CreateData(std::string name, double value) {
-    pData d;
-    d.name = name;
-    d.value = value;
+pData *CreateData(std::string name, double value) {
+    pData *d = new pData();
+    d->name = name;
+    d->value = value;
     return d;
 }
 
@@ -23,38 +23,50 @@ port::port(int status, int uniqueID) {
 }
 
 bool port::findData(std::string s) {
-    for(pData d : this->type) {
-        if (d.name == s)
+    for(pData *d : type) {
+        if (d->name == s)
             return true;
     }
     return false;
 }
 
-pData port::returnData(std::string s) {
-    pData r;
-    for(pData d : this->type) {
-        if (d.name == s)
+pData *port::returnData(std::string s) {
+    pData *r;
+    for(pData *d : type) {
+        if (d->name == s)
             r = d;
     }
     return r;
 }
 
+pData *port::returnData(unsigned int pos) {
+    return type.at(pos);
+}
+
+unsigned int port::returnPosData(std::string s) {
+    for (unsigned int i = 0; i < type.size(); i++) {
+        if (type.at(i)->name == s)
+            return i;
+    }
+    return -1;
+}
+
 void port::setDataValue(std::string s, double value) {
-    for (pData d : type) {
-        if (d.name == s)
-            d.value = value;
+    for (pData *d : type) {
+        if (d->name == s)
+            d->value = value;
     }
 }
 
-bool port::addData(pData d) {
-    if (!findData(d.name)) {
+bool port::addData(pData *d) {
+    if (!findData(d->name)) {
         type.push_back(d);
         return true;
     }
     return false;
 }
 
-std::vector<pData> port::getData() {
+std::vector<pData*> port::getData() {
     return this->type;
 }
 
@@ -66,8 +78,8 @@ bool port::isUsed() {
     return this->used;
 }
 
-void port::changeUsed() {
-    this->used = !this->used;
+void port::changeUsed(bool used) {
+    this->used = used;
 }
 
 bool port::isConnected() {

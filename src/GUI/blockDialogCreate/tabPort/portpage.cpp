@@ -48,10 +48,10 @@ portPage::portPage(std::vector<portPage *> *portPages, portToolBox *b, port *p, 
 
     portDataForm *pDF;
 
-    for(pData d : p->getData()) {
+    for(pData *d : p->getData()) {
         pDF = new portDataForm(l, &portDataForms);
-        pDF->GetUI()->name->setText(QString::fromStdString(d.name));
-        pDF->GetUI()->value->setText(QString::number(d.value));
+        pDF->GetUI()->name->setText(QString::fromStdString(d->name));
+        pDF->GetUI()->value->setText(QString::number(d->value));
         l->addWidget(pDF);
     }
 

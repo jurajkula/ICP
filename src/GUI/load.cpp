@@ -70,10 +70,7 @@ Load::Load(QFile *file)
                 QDomElement dName = D.at(k).firstChildElement("NAME");
                 QDomElement dValue = D.at(k).firstChildElement("VALUE");
 
-                pData d;
-                d.name = dName.text().toStdString();
-                d.value = dValue.text().toDouble();
-                p->addData(d);
+                p->addData(CreateData(dName.text().toStdString(), dValue.text().toDouble()));
             }
 
             listPorts->push_back(p);
