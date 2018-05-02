@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul vykreslovanie šípok - inšpirácia z príkladu v QT dokumentácii: http://doc.qt.io/qt-5/qtwidgets-graphicsview-elasticnodes-example.html
+*/
 
 #include "arrow.h"
 

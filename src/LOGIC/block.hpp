@@ -1,11 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-
-//
-// Created by jurajkula on 24.3.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre logické bloky a funcie pre prácu s nimi
+*/
 
 #ifndef ICP_BLOCK_HPP
 #define ICP_BLOCK_HPP
@@ -15,7 +11,7 @@
 #include "ICPmath.hpp"
 
 /**
- * @brief The block class
+ * @brief The Block class
  */
 class Block {
 public:
@@ -79,11 +75,38 @@ public:
      */
     int getPortsOutputCount();
 
+    /**
+     * @brief setRules Function which set rules
+     * @param rules Vector of rules
+     */
     void setRules(std::vector<rule> rules);
+
+    /**
+     * @brief setPorts Function which set ports
+     * @param ports Vector of ports
+     */
     void setPorts(std::vector<port *> *ports);
+
+    /**
+     * @brief getExecution Function which return state, if block was computed
+     * @return State of computation
+     */
     bool getExecution();
+
+    /**
+     * @brief setExecuted Function which change if block was computed or not
+     * @param b State
+     */
     void setExecuted(bool b);
+
+    /**
+     * @brief defaultExecution Function, which set computation state to default value
+     */
     void defaultExecution();
+
+    /**
+     * @brief deleteAll Function which delete all ports, rules and free their memory
+     */
     void deleteAll();
 private:
     /**

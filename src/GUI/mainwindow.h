@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre hlavné okno aplikácie
+*/
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
@@ -42,13 +43,28 @@ public:
     ~MainWindow();
 
     /**
-     * @brief getUI
-     * @return
+     * @brief getUI Function which return pointer to UI
+     * @return Return pointer UI
      */
     Ui::MainWindow *getUI();
+
+    /**
+     * @brief getScene Function which return pointer to graphics scene
+     * @return Return pointer to scene
+     */
     QGraphicsScene *getScene();
+
+    /**
+     * @brief getScheme Function which return pointer to logic scheme
+     * @return Pointer to logic scheme
+     */
     Scheme *getScheme();
 
+    /**
+     * @brief getPortNodeByPortUniqueID Function which return pointer to PortNode - Function find portNode by Port unique ID
+     * @param id Port unique ID
+     * @return Pointer to PortNode
+     */
     PortNode *getPortNodeByPortUniqueID(int id);
 
 
@@ -64,9 +80,14 @@ private slots:
      */
     void on_actionTutorial_triggered();
 
-
+    /**
+     * @brief on_actionSave_2_triggered Save scheme
+     */
     void on_actionSave_2_triggered();
 
+    /**
+     * @brief on_actionLoad_2_triggered Load scheme
+     */
     void on_actionLoad_2_triggered();
 
 private:

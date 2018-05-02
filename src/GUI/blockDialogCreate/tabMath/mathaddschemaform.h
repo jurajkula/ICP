@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre vzorcovú stránku - pridanie nového vzorca
+*/
 
 #ifndef MATHADDSCHEMAFORM_H
 #define MATHADDSCHEMAFORM_H

@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre grafické zobrazenie portu (vykreslenie portu)
+*/
 
 #include "portnode.h"
 

@@ -1,12 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-
-
-//
-// Created by jurajkula on 8.4.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre počítanie výrazov, parsovanie výrazova kontroly (sémantické, lexikálne)
+*/
 
 
 #include "ICPmath.hpp"

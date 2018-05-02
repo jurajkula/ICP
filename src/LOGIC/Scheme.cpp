@@ -1,10 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-//
-// Created by jurajkula on 24.3.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Schéma blokov, udržuje logickú štruktúru blokov
+*/
 
 #include "Scheme.hpp"
 

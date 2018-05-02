@@ -1,10 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-//
-// Created by jurajkula on 8.4.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre počítanie výrazov, parsovanie výrazova kontroly (sémantické, lexikálne)
+*/
 
 #ifndef TEST_ICPMATH_HPP
 #define TEST_ICPMATH_HPP
@@ -17,7 +14,7 @@
 #include "port.hpp"
 
 /**
- * @brief The sMathTypes enum
+ * @brief The sMathTypes enum - token types
  */
 enum sMathTypes {
     sMathType_OP,
@@ -26,7 +23,7 @@ enum sMathTypes {
 };
 
 /**
- * @brief The table enum
+ * @brief The table enum - table types
  */
 enum table {
     TE,
@@ -79,14 +76,14 @@ struct rule {
 
 
 /**
- * @brief checkMathSyntax Function, which check if math schema is correct
+ * @brief checkMathSyntax Function, which check if math schema is correct (use regex for evaluate)
  * @param s Math schema as string
  * @return Return TRUE, if schema si correct, else return FALSE
  */
 bool checkMathSyntax(std::string s);
 
 /**
- * @brief splitToTokens Support function, which input string split to tokens
+ * @brief splitToTokens Support function, which input string split into tokens
  * @param str Input string
  * @param delimiter Delimiter, which split string
  * @return Return vector of strings => tokens

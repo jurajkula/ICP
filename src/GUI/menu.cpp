@@ -1,7 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis: Uvodne okno po zapnuti programu,
- * kde sa pomocou New mozme dostat k hlavnemu okno alebo pomocou Quit ukoncit program
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre grafické menu
+*/
 
 #include "menu.h"
 

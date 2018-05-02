@@ -1,6 +1,8 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre vzorcovú stránku - pridanie nového vzorca
+*/
+
 
 #include "mathaddschemaform.h"
 

@@ -1,10 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-//
-// Created by jurajkula on 24.3.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Logický modul portov, funkcie pre prácu s portami
+*/
 
 #ifndef ICP_PORT_HPP
 #define ICP_PORT_HPP
@@ -39,7 +36,7 @@ enum portStatus{
  * @brief CreateData Support function, which create data
  * @param name Name of var
  * @param value Value of var
- * @return Return created data
+ * @return Return pointer to created data
  */
 pData *CreateData(std::string name, double value);
 
@@ -51,10 +48,17 @@ public:
 
     /**
      * @brief port Constructor of class port
-     * @param status Status of the port
+     * @param status Status of the port (INPUT/OUTPUT)
+     * @param uniqueID  Generated port ID
      */
     explicit port(int status, int uniqueID);
 
+    /**
+     * @brief setDataValue Support function, which find Data via name and change value
+     * @param s Data name
+     * @param value Data value
+     */
+    void setDataValue(std::string s, double value);
 
     /**
      * @brief findData Support function, which finds data in a vector
@@ -69,6 +73,20 @@ public:
      * @return Return data
      */
     pData *returnData(std::string s);
+
+    /**
+     * @brief returnData Support function, which finds data in a vector and return them
+     * @param pos Position of var
+     * @return Return data
+     */
+    pData *returnData(unsigned int pos);
+
+    /**
+     * @brief returnPosData Support function, which find data via data name and return its position
+     * @param s Data name
+     * @return Position of data
+     */
+    unsigned int returnPosData(std::string s);
 
     /**
      * @brief addData Support function, which add data to vector and return successful state
@@ -89,7 +107,7 @@ public:
     std::vector<pData *> getData();
 
     /**
-     * @brief isUsed Support function, which return state, if port is used.
+     * @brief isUsed Support function, which return state, if port is used. (using at computing)
      * @return Return TRUE, if port was used, else return FALSE
      */
     bool isUsed();
@@ -117,7 +135,7 @@ public:
 
     /**
      * @brief getConnection Funcitno, which return connection
-     * @return Connectin
+     * @return Connection of port
      */
     connection getConnection();
 
@@ -138,6 +156,9 @@ public:
      */
     void changeConnection();
 
+    /**
+     * @brief destroyConnection Function which cancel port connection
+     */
     void destroyConnection();
 
     /**
@@ -164,13 +185,21 @@ public:
      */
     void setID(int ID);
 
+    /**
+     * @brief getUniqueID Function which get port unique ID
+     * @return unique ID
+     */
     int getUniqueID();
 
+    /**
+     * @brief setUniqueID Function which set port unique ID
+     * @param uniqueID New unique ID
+     */
     void setUniqueID(int uniqueID);
 
-    void setDataValue(std::string s, double value);
-    pData *returnData(unsigned int pos);
-    unsigned int returnPosData(std::string s);
+    /**
+     * @brief deleteAll Function, which delete data, connection -> free memory
+     */
     void deleteAll();
 private:
     /**
@@ -198,6 +227,9 @@ private:
      */
     int ID = 0;
 
+    /**
+     * @brief uniqueID Port unique ID, default is set to 0
+     */
     int uniqueID = 0;
 };
 

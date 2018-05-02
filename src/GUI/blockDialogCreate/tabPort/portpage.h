@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre port stránku
+*/
 
 #ifndef PORTPAGE_H
 #define PORTPAGE_H
@@ -24,12 +25,20 @@ class portPage : public QWidget
 
 public:
     /**
-     * @brief portPage Constructor of class
+     * @brief portPage Constructor of class - create
      * @param portPages Vector of port pages
-     * @param box Box Box of pages
+     * @param box Box of pages
      * @param parent Parent window
      */
     explicit portPage(std::vector<portPage *> *portPages, portToolBox *box, QWidget *parent = 0);
+
+    /**
+     * @brief portPage Constructor of class - edit
+     * @param portPages Vector of port pages
+     * @param b Box of pages
+     * @param p Pointer to port
+     * @param parent Parent window
+     */
     portPage(std::vector<portPage *> *portPages, portToolBox *b, port *p, QWidget *parent = 0);
     ~portPage();
 

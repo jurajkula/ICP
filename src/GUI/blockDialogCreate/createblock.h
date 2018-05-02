@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre dialóg na vytvorenie blokov
+*/
 
 #ifndef CREATEBLOCK_H
 #define CREATEBLOCK_H
@@ -30,18 +31,27 @@ class createBlock : public QDialog
 
 public:
     /**
-     * @brief createBlock Constructor of class
+     * @brief createBlock Constructor of class - new dialog
      * @param scheme Pointer to logic scheme
      * @param scene Scene
      * @param pos Position
      * @param parent Parent window
      */
     explicit createBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, QWidget *parent = 0);
+
+    /**
+     * @brief createBlock Constructor of class - edit dialog
+     * @param s Pointer to logic scheme
+     * @param scene Scene
+     * @param pos Position
+     * @param block Pointer to block
+     * @param parent Parent window
+     */
     createBlock(Scheme *s, QGraphicsScene *scene, QPointF pos, Block *block, QWidget *parent = 0);
     ~createBlock();
 
     /**
-     * @brief setErrorMessage Support function, which seet error message to label
+     * @brief setErrorMessage Support function, which set error message to label
      * @param s Message
      */
     void setErrorMessage(std::string s);

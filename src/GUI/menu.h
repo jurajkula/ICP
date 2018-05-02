@@ -1,7 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre grafické menu - úvodné menu
+*/
 
 #ifndef FORM_H
 #define FORM_H
@@ -49,6 +49,9 @@ private slots:
      */
     void dialogRejected_showMenu();
 
+    /**
+     * @brief on_pushButton_2_clicked Load a program
+     */
     void on_pushButton_2_clicked();
 
 private:

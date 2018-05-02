@@ -1,6 +1,9 @@
-#include "mainwindowtools.h"
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre nástroje programu - RUN, DEBUG, NEXT, STOP
+*/
 
-#include <src/GUI/blockGraphics/rectangle.h>
+#include "mainwindowtools.h"
 
 mainWindowTools::mainWindowTools(Scheme *scheme, QGraphicsScene *scene, QWidget *parent) :
     QWidget(parent),

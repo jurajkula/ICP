@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre načítavanie schém
+*/
 
 #include "load.h"
 #include <QDomDocument>

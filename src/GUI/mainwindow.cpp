@@ -1,8 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis: Zakladne okno programu kde su
- * pouzite aj buttony ako New,Save,Load,Quit
- * Taktiez je tu graficka scena kde sa vytvaraju bloky
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre hlavné okno aplikácie
+*/
 
 #include "mainwindow.h"
 #include "mainwindowtools.h"

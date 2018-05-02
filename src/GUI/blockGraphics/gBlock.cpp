@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre obalenie grafických komponent bloku
+*/
 
 #include "gBlock.h"
 
@@ -41,8 +42,4 @@ gBlock::gBlock(Scheme *scheme, QGraphicsScene *scene, QPointF pos, Block *block)
 Block *gBlock::getLogicBlock()
 {
     return this->block;
-}
-
-void gBlock::redrawPorts() {
-
 }

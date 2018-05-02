@@ -1,11 +1,10 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis: Sluzi na ukladanie akltualnej rozohranej hry/programu v xml formate
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre uloženie programu - program prevedie do xml formátu
+*/
 
 
 #include "save.h"
-
-#include <src/GUI/blockGraphics/rectangle.h>
 
 Save::Save(Scheme *scheme, QGraphicsScene *scene, QFile *file)
 {

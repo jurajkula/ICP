@@ -1,8 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis: Pri vytvarani noveho okna sa zjavi tento dialog
- * kde si urcime naozv nasho noveho okna
- *                                   */
-
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre dialóg (názov schémy).Buď vytvorí hlavné okno progrmau alebo sa vráti späť do menu.
+*/
 
 #include "dialog.h"
 Dialog::Dialog(QWidget *parent) :

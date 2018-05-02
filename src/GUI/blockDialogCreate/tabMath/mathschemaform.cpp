@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre vzorcovú stránku
+*/
 
 #include "mathschemaform.h"
 
@@ -17,6 +18,9 @@ mathSchemaForm::mathSchemaForm(QVBoxLayout *layout, std::vector<mathSchemaForm *
     if (mathForms->size() == 0) {
         this->ui->destroySchema->hide();
     }
+
+    QRegExp rx("[a-zA-Z][a-zA-z0-9]*");
+    this->ui->mathOutput->setValidator(new QRegExpValidator(rx, this));
 }
 
 mathSchemaForm::~mathSchemaForm()

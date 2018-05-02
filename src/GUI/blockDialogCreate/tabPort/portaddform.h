@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre port stránku - pridanie portu
+*/
 
 #ifndef PORTADDFORM_H
 #define PORTADDFORM_H

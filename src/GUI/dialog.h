@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre dialóg (názov schémy).Buď vytvorí hlavné okno progrmau alebo sa vráti späť do menu.
+*/
 
 #ifndef DIALOG_H
 #define DIALOG_H
@@ -41,8 +42,8 @@ public:
     virtual void accept();
 
     /**
-     * @brief getMainWindow
-     * @return
+     * @brief getMainWindow Function which return pointer to main window of app
+     * @return Pointer to MainWindow
      */
     MainWindow *getMainWindow();
 
@@ -55,17 +56,17 @@ public:
 private slots:
 
     /**
-     * @brief on_buttonBox_accepted Function, which collects singla accepted
+     * @brief on_buttonBox_accepted Function, which collects signal accepted
      */
     void on_buttonBox_accepted();
 
     /**
-     * @brief onbuttonBox_rejected
+     * @brief onbuttonBox_rejected Function, which collets rejected signal
      */
     void onbuttonBox_rejected();
 
     /**
-     * @brief mainWindow_new_triggered
+     * @brief mainWindow_new_triggered Function which collets signal trigger - new schema from MainWindow
      */
     void mainWindow_new_triggered();
 

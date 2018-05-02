@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vako
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre port stránku - data
+*/
 
 #include "portdataform.h"
 
@@ -19,6 +20,9 @@ portDataForm::portDataForm(QVBoxLayout *layout, std::vector<portDataForm *> *por
 
     this->ui->value->setValidator(new QDoubleValidator(0, 100, 10, this));
     this->ui->value->setText("0");
+
+    QRegExp rx("[a-zA-Z][a-zA-z0-9]*");
+    this->ui->name->setValidator(new QRegExpValidator(rx, this));
 }
 
 Ui::portDataForm* portDataForm::GetUI(){

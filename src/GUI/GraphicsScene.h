@@ -1,7 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre prepísanie triedy QGraphicsScene
+*/
 
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
@@ -37,8 +37,22 @@ public:
      */
     virtual void mouseDoubleClickEvent(QGraphicsSceneMouseEvent * mouseEvent);
 
+    /**
+     * @brief mouseMoveEvent Function, which grab mouse move event
+     * @param mouseEvent Mouse event
+     */
     virtual void mouseMoveEvent(QGraphicsSceneMouseEvent * mouseEvent);
+
+    /**
+     * @brief mousePressEvent Function, which grab mouse Press event
+     * @param mouseEvent Mouse event
+     */
     virtual void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent);
+
+    /**
+     * @brief mouseReleaseEvent Function, which grab mouse Release event
+     * @param mouseEvent Mouse event
+     */
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent * mouseEvent);
 signals:
 

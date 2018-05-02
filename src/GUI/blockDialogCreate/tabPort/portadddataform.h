@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre port stránku - pridanie dát
+*/
 
 #ifndef PORTADDDATAFORM_H
 #define PORTADDDATAFORM_H

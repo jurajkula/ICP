@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul zobrazenie dát z bloku
+*/
 
 #include "rectangleinfodialogdata.h"
 #include "ui_rectangleinfodialogdata.h"

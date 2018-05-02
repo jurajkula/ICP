@@ -1,6 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre vzorcovú stránku
+*/
 
 #ifndef MATHSCHEMAFORM_H
 #define MATHSCHEMAFORM_H
@@ -15,16 +16,25 @@ namespace Ui {
 class mathSchemaForm;
 }
 
+/**
+ * @brief The mathSchemaForm class
+ */
 class mathSchemaForm : public QWidget
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief mathSchemaForm Constructor of the class
+     * @param layout Pointer to box layout
+     * @param mathForms Pointer to vector of math forms
+     * @param parent Pointer to parent widget
+     */
     explicit mathSchemaForm(QVBoxLayout *layout, std::vector<mathSchemaForm *> *mathForms, QWidget *parent = 0);
     ~mathSchemaForm();
 
     /**
-     * @brief showButton Support function, which
+     * @brief showButton Support function, which show delete button
      */
     void showButton();
 
@@ -35,8 +45,14 @@ public:
     Ui::mathSchemaForm *getUI();
 
 private slots:
+    /**
+     * @brief on_destroySchema_clicked Destroy schema
+     */
     void on_destroySchema_clicked();
 
+    /**
+     * @brief on_mathSchema_editingFinished Function which edit style of formula
+     */
     void on_mathSchema_editingFinished();
 
 private:

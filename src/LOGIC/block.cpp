@@ -1,11 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-
-//
-// Created by jurajkula on 24.3.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Modul pre logické bloky a funcie pre prácu s nimi
+*/
 
 #include "block.hpp"
 

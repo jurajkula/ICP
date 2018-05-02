@@ -1,11 +1,7 @@
-/* Autory : Juraj Kula , Michal Vasko
- * Popis:
- *                                   */
-
-
-//
-// Created by jurajkula on 24.3.2018.
-//
+/* Autori : Juraj Kula <xkulaj02>
+ *          Michal Vasko <xvasko14>
+ * Popis: Schéma blokov, udržuje logickú štruktúru blokov
+*/
 
 #ifndef ICP_SCHEME_HPP
 #define ICP_SCHEME_HPP
@@ -23,14 +19,14 @@ class Scheme {
 public:
 
     /**
-     * @brief Scheme Constructor this class
+     * @brief Scheme Constructor of this class
      * @param s Name of scheme
      */
     explicit Scheme(std::string s);
 
     /**
-     * @brief blockAdd Function, which add block to vector
-     * @param b Pointer to block
+     * @brief blockAdd Function, which add block to vector of blocks
+     * @param b Pointer to block, which will be added to vector
      */
     void blockAdd(Block *b);
 
@@ -59,14 +55,26 @@ public:
      */
     void setName(std::string s);
 
+    /**
+     * @brief destroyConnection Function, which cancel connection between ports
+     * @param pOUT  Pointer to output(source) port
+     * @param pIN   Pointer to input(destination) port
+     */
     void destroyConnection(port *pOUT, port *pIN);
+
+    /**
+     * @brief cycleConnection Function, which control cycling (block cannot be connected with block, which is directly or indirectly connected to it)
+     * @param pOUT  Pointer to output(source) port
+     * @param pIN   Pointer to input(destination) port
+     * @return Return TRUE, if blocks are connected, else return FALSE
+     */
     bool cycleConnection(port *pOUT, port *pIN);
 
     /**
-     * @brief createConnection Function, which set connection between 2 ports
+     * @brief createConnection Function, which set connection between 2 ports and run some control between them
      * @param p1 Output port
      * @param p2 Input port
-     * @return Return TRUE, if was possible create connection, else return FALSE
+     * @return Return TRUE, if it was possible create connection, else return FALSE
      */
     bool createConnection(port *out, port *in);
 
@@ -77,13 +85,22 @@ public:
     bool compute();
 
     /**
-     * @brief generateID Support function, which generate ID.
+     * @brief generateID Support function, which generate unique block ID.
      * @return Generated ID
      */
     int generateID();
 
-
+    /**
+     * @brief generatePortID Support function, wchich generate unique port ID.
+     * @return Generated ID
+     */
     int generatePortID();
+
+    /**
+     * @brief getPortByUniqueID Support function, which returns pointer to port, which was found via its ID
+     * @param ID ID of wanted port
+     * @return Pointer to port
+     */
     port *getPortByUniqueID(int ID);
 private:
     /**
