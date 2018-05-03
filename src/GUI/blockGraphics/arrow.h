@@ -52,10 +52,26 @@ public:
     PortNode *getSourceNode();
 
 protected:
+    /**
+     * @brief boundingRect Default function
+     * @return QRectF
+     */
     QRectF boundingRect() const override;
+
+    /**
+     * @brief paint Default function
+     * @param painter QPainter
+     * @param option Opiton
+     * @param widget Parent widget
+     */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
     enum { Type = UserType + 4 };
+
+    /**
+     * @brief type Return object type
+     * @return New type
+     */
     int type() const override;
 private:
     PortNode *source, *dest;

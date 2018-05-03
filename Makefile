@@ -14,12 +14,9 @@ qmake_run:
 	cd ./build && make -j8
 
 clean:
-	rm -rf ./bin/
-	rm -rf ./build/
-	rm -rf ./doc/
-	mkdir bin
-	mkdir build
-	mkdir doc
+	rm -rf ./bin/*
+	rm -rf ./build/*
+	rm -rf ./doc/*
 
 pack: clean
 	zip -r ${NAME}.zip ./*
