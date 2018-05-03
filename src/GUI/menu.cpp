@@ -55,7 +55,7 @@ void Form::on_pushButton_2_clicked()
     QString filename=QFileDialog::getOpenFileName(
                 this,
                 tr("Open File"),
-                "../example",
+                "../examples",
                 "ICP file (*.icp);;All Files(*)"
                 );
 

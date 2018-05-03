@@ -83,7 +83,7 @@ void MainWindow::on_actionLoad_2_triggered()
         QString filename=QFileDialog::getOpenFileName(
                     this,
                     tr("Open File"),
-                    "../example",
+                    "../examples",
                     "ICP file (*.icp);;All Files(*)"
                     );
 
@@ -106,7 +106,7 @@ void MainWindow::on_actionSave_2_triggered()
     QString filename=QFileDialog::getSaveFileName(
                 this,
                 tr("Save File"),
-                "../example",
+                "../examples",
                 filter
                 );
 
