@@ -89,16 +89,49 @@ protected slots:
     void STOP_clicked();
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::mainWindowTools *ui;
 
+    /**
+     * @brief run Button run
+     */
     QPushButton *run;
+
+    /**
+     * @brief debug Button debug
+     */
     QPushButton *debug;
+
+    /**
+     * @brief next Button next
+     */
     QPushButton *next;
+
+    /**
+     * @brief stop Button stop
+     */
     QPushButton *stop;
+
+    /**
+     * @brief scheme Pointer to logic scheme
+     */
     Scheme *scheme;
+
+    /**
+     * @brief scene Pointer to graphics scene
+     */
     QGraphicsScene *scene;
 
+    /**
+     * @brief computation State if block was computed
+     */
     bool computation = false;
+
+    /**
+     * @brief debugging State if debugging is running
+     */
     bool debugging = false;
 };
 

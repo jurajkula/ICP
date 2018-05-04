@@ -41,7 +41,14 @@ public:
     void setPos(QPointF pos, int blockWidth);
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::rectangleInfoDialog *ui;
+
+    /**
+     * @brief layout QVBox layout
+     */
     QVBoxLayout *layout;
 };
 

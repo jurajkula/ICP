@@ -120,6 +120,9 @@ private:
      */
     std::vector<rule> rules;
 
+    /**
+     * @brief oldblock Pointer to logic block
+     */
     Block *oldblock = nullptr;
 };
 

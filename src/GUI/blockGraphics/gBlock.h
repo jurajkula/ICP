@@ -40,8 +40,6 @@ private slots:
 
 protected:
 private:
-    QGraphicsItemGroup *group;
-
     /**
      * @brief scene Scene
      */
@@ -52,14 +50,29 @@ private:
      */
     Rectangle *rectangle;
 
+    /**
+     * @brief nodePosStartY Start position of node
+     */
     int nodePosStartY = 25;
+
     /**
      * @brief pos Position
      */
     QPointF pos;
 
+    /**
+     * @brief block Pointer to logic block
+     */
     Block *block;
+
+    /**
+     * @brief nodes Vector of graphics ports
+     */
     std::vector<PortNode *> nodes;
+
+    /**
+     * @brief scheme Pointer to logic scheme
+     */
     Scheme *scheme;
 };
 

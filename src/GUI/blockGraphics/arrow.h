@@ -66,7 +66,12 @@ protected:
      */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    enum { Type = UserType + 4 };
+    /**
+     * enum for object type
+     */
+    enum {
+        Type = UserType + 4
+    };
 
     /**
      * @brief type Return object type
@@ -74,12 +79,39 @@ protected:
      */
     int type() const override;
 private:
-    PortNode *source, *dest;
+    /**
+     * @brief source Pointer to source graphics port
+     */
+    PortNode *source;
+
+    /**
+     * @brief dest Pointer to dest graphics port
+     */
+    PortNode *dest;
+
+    /**
+     * @brief destP Pointer to dest graphics point
+     */
     point *destP;
+
+    /**
+     * @brief isDestP State if destination is portnode or point
+     */
     bool isDestP;
 
+    /**
+     * @brief sourcePoint Position of source
+     */
     QPointF sourcePoint;
+
+    /**
+     * @brief destPoint Position of destination
+     */
     QPointF destPoint;
+
+    /**
+     * @brief arrowSize Size of arrow
+     */
     qreal arrowSize;
 };
 

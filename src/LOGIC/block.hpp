@@ -124,8 +124,19 @@ private:
      */
     int ID;
 
+    /**
+     * @brief portsInputCount Number of input ports
+     */
     int portsInputCount = 0;
+
+    /**
+     * @brief portsOutputCount Number of output ports
+     */
     int portsOutputCount = 0;
+
+    /**
+     * @brief executed State if block was computed
+     */
     bool executed = false;
 };
 

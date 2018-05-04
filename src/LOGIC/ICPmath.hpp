@@ -66,6 +66,9 @@ struct rule {
      */
     std::string output;
 
+    /**
+     * @brief infoSchema String represent of formula
+     */
     std::string infoSchema;
 
     /**

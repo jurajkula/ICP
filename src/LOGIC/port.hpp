@@ -114,6 +114,7 @@ public:
 
     /**
      * @brief changeUsed Support function, which change using state to opposite value
+     * @param used State if port was computing
      */
     void changeUsed(bool used);
 

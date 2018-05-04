@@ -59,7 +59,11 @@ public:
      */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    /**
+     * Enum for object type
+     */
     enum { Type = UserType + 1 };
+
     /**
      * @brief type Funciton which returns object type ID
      * @return ReturnObject type ID
@@ -114,9 +118,24 @@ protected:
      */
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override;
 private:
+    /**
+     * @brief node Pointer to graphics port
+     */
     PortNode *node;
+
+    /**
+     * @brief line Pointer to arrow between port ant this point
+     */
     Arrow *line;
+
+    /**
+     * @brief scene Pointer to graphics scene
+     */
     QGraphicsScene *scene;
+
+    /**
+     * @brief infoDialog Pointer to port info dialog
+     */
     portInfoDialog *infoDialog;
 };
 

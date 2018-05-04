@@ -72,8 +72,8 @@ public:
 
     /**
      * @brief createConnection Function, which set connection between 2 ports and run some control between them
-     * @param p1 Output port
-     * @param p2 Input port
+     * @param out Output port
+     * @param in Input port
      * @return Return TRUE, if it was possible create connection, else return FALSE
      */
     bool createConnection(port *out, port *in);

@@ -31,6 +31,9 @@ public:
     ~portInfoDialogData();
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::portInfoDialogData *ui;
 };
 

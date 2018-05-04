@@ -72,8 +72,19 @@ private slots:
 
 
 private:
+    /**
+     * @brief ui Pointer to graphics UI
+     */
     Ui::Dialog *ui;
+
+    /**
+     * @brief scene Pointer to scene
+     */
     QGraphicsScene *scene;
+
+    /**
+     * @brief mainwindow Pointer to main window
+     */
     MainWindow *mainwindow = nullptr;
 
 };

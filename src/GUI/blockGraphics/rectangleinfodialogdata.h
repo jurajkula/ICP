@@ -37,6 +37,9 @@ public:
     Ui::rectangleInfoDialogData *getUi();
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::rectangleInfoDialogData *ui;
 };
 

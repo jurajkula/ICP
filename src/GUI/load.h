@@ -15,7 +15,14 @@ class MainWindow;
  * @brief The LoadConnect struct
  */
 struct LoadConnect {
+    /**
+     * @brief source ID of source port
+     */
     int source;
+
+    /**
+     * @brief dest ID of dest port
+     */
     int dest;
 };
 
@@ -32,7 +39,14 @@ public:
     Load(QFile *file);
 
 private:
+    /**
+     * @brief mainwindow Pointer to mainwindow
+     */
     MainWindow *mainwindow;
+
+    /**
+     * @brief listConnection Vector of connections - ID of both ports
+     */
     std::vector<LoadConnect> listConnection;
 };
 

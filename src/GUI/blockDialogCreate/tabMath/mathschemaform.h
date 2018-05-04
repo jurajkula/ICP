@@ -56,9 +56,19 @@ private slots:
     void on_mathSchema_editingFinished();
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::mathSchemaForm *ui;
 
+    /**
+     * @brief layout Pointer to layout of this widget
+     */
     QVBoxLayout *layout;
+
+    /**
+     * @brief mathForms Pointer to vector of graphics schemas
+     */
     std::vector<mathSchemaForm *> *mathForms;
 };
 

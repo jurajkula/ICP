@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+Autori: Juraj Kula (xkulaj02), Michal Vaško (xvasko14)
+Popis: Generovaný súbor
+-->
 <ui version="4.0">
  <class>portInfoDialog</class>
  <widget class="QWidget" name="portInfoDialog">

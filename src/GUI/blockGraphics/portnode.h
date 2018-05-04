@@ -54,6 +54,9 @@ public:
      */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    /**
+     * Enum for object type
+     */
     enum { Type = UserType + 2 };
 
     /**
@@ -138,11 +141,34 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
+    /**
+     * @brief arrow Pointer to arrow
+     */
     Arrow * arrow;
+
+    /**
+     * @brief newPos New osition
+     */
     QPointF newPos;
+
+    /**
+     * @brief scene Pointer to graphics scene
+     */
     QGraphicsScene *scene;
+
+    /**
+     * @brief p Pointer to invisible port
+     */
     point *p;
+
+    /**
+     * @brief scheme Pointer to scheme
+     */
     Scheme *scheme;
+
+    /**
+     * @brief logicPort Pointer to logic port
+     */
     port *logicPort;
 };
 

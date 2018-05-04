@@ -40,6 +40,10 @@ protected slots:
      */
     void animFinished();
 private:
+
+    /**
+     * @brief numScheduledScalings Scaling num
+     */
     int numScheduledScalings;
 };
 

@@ -55,8 +55,19 @@ protected:
      */
     void prepareData();
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::portInfoDialog *ui;
+
+    /**
+     * @brief layout QHBox layout - layout of dialog
+     */
     QHBoxLayout *layout;
+
+    /**
+     * @brief p Pointer to logic port
+     */
     port *p;
 };
 

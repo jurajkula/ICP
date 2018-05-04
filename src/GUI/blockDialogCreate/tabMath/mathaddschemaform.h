@@ -44,9 +44,19 @@ private slots:
     void on_pushButton_clicked();
 
 private:
+    /**
+     * @brief ui Pointer to UI
+     */
     Ui::mathAddSchemaForm *ui;
 
+    /**
+     * @brief layout Pointer to graphics layout
+     */
     QVBoxLayout *layout;
+
+    /**
+     * @brief mathForms Pointer to graphics math forms
+     */
     std::vector<mathSchemaForm *> *mathForms;
 };
 

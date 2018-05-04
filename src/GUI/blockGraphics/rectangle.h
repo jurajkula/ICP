@@ -60,6 +60,9 @@ public:
      */
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    /**
+     * Enum for object type
+     */
     enum { Type = UserType + 3 };
 
     /**
@@ -118,26 +121,49 @@ protected:
      */
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 private:
+    /**
+     * @brief scene Pointer to graphics scene
+     */
     QGraphicsScene *scene;
 
     /**
-     * @brief X
+     * @brief width
      */
     int X = 100;
 
     /**
-     * @brief Y
+     * @brief height
      */
     int Y = 50;
 
+    /**
+     * @brief Ymul Which port in order
+     */
     int Ymul = 0;
 
+    /**
+     * @brief nodes Pointer to graphics nodes
+     */
     std::vector<PortNode*> *nodes;
 
+    /**
+     * @brief Ppos Old position
+     */
     QPointF Ppos;
 
+    /**
+     * @brief infoDialog Pointer to info dialog
+     */
     rectangleInfoDialog *infoDialog;
+
+    /**
+     * @brief scheme Pointer to logic scheme
+     */
     Scheme *scheme;
+
+    /**
+     * @brief block Pointer to logic block
+     */
     Block *block;
 };
 
