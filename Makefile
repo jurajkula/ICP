@@ -22,7 +22,7 @@ pack: clean
 	zip -r ${NAME}.zip ./*
 
 run: qmake_run
-	cd ./bin && ./ProjektICP
+	cd ./bin && ./blockeditor
 
 doxygen:
 	doxygen doxconf
